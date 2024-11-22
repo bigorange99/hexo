@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/11/22/mac-env-var/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/08/03/2023%E5%B9%B47%E6%9C%88Java%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/10/16/2FA%E4%B8%8EMFA%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/07/25/datawhale-task1-baseline/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/07/30/datawhale-task2-read-baseline/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/07/31/datawhale-task3-fine-tuning/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/08/02/datawhale-task4-appendix/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/02/17/DataX-Web%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/05/25/DB2%E4%B8%8EOracle%E8%AF%AD%E6%B3%95%E5%AF%B9%E6%AF%94/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-2-Docx4j%E7%9A%84%E6%AE%B5%E8%90%BD%E7%BA%A7%E5%88%AB%E4%BF%A1%E6%81%AF/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-3-Docx4j%E7%9A%84%E6%AE%B5%E8%90%BD%E7%BA%A7%E5%88%AB%E4%BF%A1%E6%81%AF/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-4-Docx4j%E7%9A%84%E6%96%87%E6%9C%AC%E7%BA%A7%E5%88%AB%E4%BF%A1%E6%81%AF/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-5-Docx4j%E7%9A%84%E5%9B%BE%E7%89%87%E4%BF%A1%E6%81%AF/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/01/03/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-6-Docx4j%E7%9A%84%E8%A1%A8%E6%A0%BC/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/03/15/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-7-Docx4j%E7%9A%84%E9%A1%B5%E7%A0%81/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/03/16/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-8-Docx4j%E7%9A%84%E7%9B%AE%E5%BD%95/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/06/03/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-9-Docx4j%E7%9A%84%E5%88%86%E9%A1%B5%E5%92%8C%E5%88%86%E8%8A%82/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/04/11/Doris%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/06/19/Doris%E9%9B%86%E7%BE%A4%E5%8D%87%E7%BA%A7/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/05/08/Doris%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%EF%BC%88Minio%20S3%E5%AD%98%E5%82%A8%EF%BC%89/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/11/14/google-prompting-guide-101/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/05/09/Hexo%E5%86%99%E4%BD%9C%E5%8A%A9%E6%89%8BBat%E8%84%9A%E6%9C%AC/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/09/01/inside-git/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/02/17/Logback%E6%A0%B9%E6%8D%AEMarker%E6%98%AF%E5%90%A6%E6%8F%92%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E5%BA%93%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/05/08/kafka%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/08/06/noUnzipModifyContent/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/02/23/Oracle%E6%95%B0%E6%8D%AE%E6%B3%B5expdp%E5%92%8Cimpdp/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/10/17/OTP-Java-Redme/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/08/21/RunLLM-onCpuEnv-withOllama/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/08/25/%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E7%9A%84%E9%94%81%E7%9A%84%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/04/20/%E4%B8%96%E7%95%8C%E8%BF%99%E4%B9%88%E5%A4%A7%E6%88%91%E6%83%B3%E5%8E%BB%E7%9C%8B%E7%9C%8B-1/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/06/17/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%90%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E3%80%91/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/03/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%A4%A7%E5%85%A8/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2024/04/24/%E9%80%9A%E8%BF%87%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E6%B6%88%E9%99%A4%E5%86%97%E9%95%BF%E7%9A%84if%E5%9D%97/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/2023/02/20/%E9%9A%8F%E6%89%8B%E8%AE%B020230220/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/index.html</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tools/index.html</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/links/index.html</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/categories/index.html</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/about/index.html</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/404/index.html</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://log.660066.xyz/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E5%BC%80%E5%8F%91%E7%BA%AA%E5%AE%9E/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/DataX-Web/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/Docx4j/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/Bat/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/Logback/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/Oracle/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/AI/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/Datawhale/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/XBRL/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/MacOS/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E8%A1%97%E6%BA%9C%E5%AD%90%E7%B3%BB%E5%88%97/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E9%94%81/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://log.660066.xyz/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+</urlset>

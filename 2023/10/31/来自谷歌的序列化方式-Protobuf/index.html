@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="JyJm6tHJ1q5mhbqwbRl4KEUE_ms1dc_9MJ0G0GIHnq8">
+  <meta name="baidu-site-verification" content="codeva-tXW0RgD5OZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"log.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="来自谷歌的序列化方式-Protobuf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="来自谷歌的序列化方式-Protobuf">
+<meta property="og:url" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/index.html">
+<meta property="og:site_name" content="大橙子">
+<meta property="og:description" content="来自谷歌的序列化方式-Protobuf">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031105853793.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031154711797.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031154909757.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031155007866.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031155123217.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031155336870.png">
+<meta property="article:published_time" content="2023-10-31T02:45:47.000Z">
+<meta property="article:modified_time" content="2024-11-17T12:46:27.063Z">
+<meta property="article:author" content="BigOrange">
+<meta property="article:tag" content="序列化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031105853793.png">
+
+
+<link rel="canonical" href="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/","path":"2023/10/31/来自谷歌的序列化方式-Protobuf/","title":"来自谷歌的序列化方式-Protobuf"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>来自谷歌的序列化方式-Protobuf | 大橙子</title>
+  
+
+
+
+
+
+
+
+  <script defer data-domain="660066.xyz" src="https://plausible.io/js/script.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="大橙子" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="大橙子" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大橙子</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-工具箱"><a href="/tools/" rel="section"><i class="fa fa-flask fa-fw"></i>工具箱</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFProtobuf"><span class="nav-text">一、什么是Protobuf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90%F0%9F%8C%B0"><span class="nav-text">二、举个栗子🌰</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1%E5%AE%89%E8%A3%85protoc"><span class="nav-text">2.1安装protoc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2%E8%BD%AC%E6%8D%A2"><span class="nav-text">2.2转换</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BigOrange</p>
+  <div class="site-description" itemprop="description">新的斗争开始了<br/>A new struggle has begun</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://log.660066.xyz/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigOrange">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大橙子">
+      <meta itemprop="description" content="新的斗争开始了<br/>A new struggle has begun">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="来自谷歌的序列化方式-Protobuf | 大橙子">
+      <meta itemprop="description" content="来自谷歌的序列化方式-Protobuf">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          来自谷歌的序列化方式-Protobuf
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-31 10:45:47" itemprop="dateCreated datePublished" datetime="2023-10-31T10:45:47+08:00">2023-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-17 20:46:27" itemprop="dateModified" datetime="2024-11-17T20:46:27+08:00">2024-11-17</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">来自谷歌的序列化方式-Protobuf</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一、什么是Protobuf"><a href="#一、什么是Protobuf" class="headerlink" title="一、什么是Protobuf"></a>一、什么是Protobuf</h1><p>Google Protocol Buffer( 简称 Protobuf) 是 Google 公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个 .proto 文件。他们用于 RPC 系统和持续数据存储系统。</p>
+<p>Protocol Buffers 是一种<strong>轻便高效的结构化数据存储格式</strong>，可以用于<strong>序列化</strong>（结构化数据串行化）。它很适合做数据存储或 RPC 数据交换格式。可用于通讯协议、数据存储等领域的<strong>语言无关、平台无关、可扩展的序列化结构数据格式</strong>。</p>
+<p>和<code>json</code>、<code>xml</code>如出一辙，之所以要学习<code>protobuf</code>是因为这种序列化方式得到的数据体积是很小的，这就导致了它在网络传输性能以及存储方面的优势；因为体积小，让<code>protobuf</code>序列化的数据传输性能高，磁盘占用率也低；所以<code>protobuf</code>序列化的场景一般出现在高性能业务中，基本上是通过<code>tcp</code>+<code>protobuf</code>的通信方式取代<code>http</code>+<code>json</code>；</p>
+<h1 id="二、举个栗子🌰"><a href="#二、举个栗子🌰" class="headerlink" title="二、举个栗子🌰"></a>二、举个栗子🌰</h1><p>编写protobuf之前，需要使用先下载protoc工具，将proto转换为目标语言需要的代码。</p>
+<img src="/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031105853793.png" alt="image-20231031105853793" style="zoom:50%;">
+
+<h2 id="2-1安装protoc"><a href="#2-1安装protoc" class="headerlink" title="2.1安装protoc"></a>2.1安装protoc</h2><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/protocolbuffers/protobuf/releases/">https://github.com/protocolbuffers/protobuf/releases/</a></p>
+<ol>
+<li>下载对应系统的protoc版本</li>
+</ol>
+<p><img src="/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031154711797.png" alt="image-20231031154711797"></p>
+<ol start="2">
+<li><p>设置环境变量</p>
+<p><img src="/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031154909757.png" alt="image-20231031154909757"></p>
+<p><img src="/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031155007866.png" alt="image-20231031155007866"></p>
+</li>
+<li><p>检查是否安装成功</p>
+<p>protoc –version</p>
+<img src="/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031155123217.png" alt="image-20231031155123217" style="zoom:70%;"></li>
+</ol>
+<h2 id="2-2转换"><a href="#2-2转换" class="headerlink" title="2.2转换"></a>2.2转换</h2><figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用proto3语法</span></span><br><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"><span class="comment">// 生成多个类</span></span><br><span class="line"><span class="keyword">option</span> java_multiple_file = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 生成Java类所在的包名</span></span><br><span class="line"><span class="keyword">option</span> java_package = <span class="string">&quot;com.dcz.news&quot;</span>;</span><br><span class="line"><span class="comment">// 生成外层类类名</span></span><br><span class="line"><span class="keyword">option</span> java_outer_classname = <span class="string">&quot;NewsProto&quot;</span>;</span><br><span class="line"><span class="comment">// 逻辑包名</span></span><br><span class="line"><span class="keyword">package</span> news;</span><br><span class="line"><span class="comment">// service服务，用于描述要生成的API接口，类似Java的业务逻辑接口类</span></span><br><span class="line"><span class="keyword">service </span><span class="title class_">NewsService</span> &#123;</span><br><span class="line">	<span class="comment">// rpc方法（参数类型） returns (返回类型)&#123;&#125;</span></span><br><span class="line">	<span class="function"><span class="keyword">rpc</span> list(NewsRequest) <span class="keyword">returns</span> (NewsResponse) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">message </span><span class="title class_">NewsRequest</span> &#123;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">		字段：类型 名称 = 索引值（id）</span></span><br><span class="line"><span class="comment">		每个字段都要定义唯一的索引值，这些数字是用来在消息的二进制格式中识别各个字段的。</span></span><br><span class="line"><span class="comment">		一旦开始使用就不能再改变，最小的标识号可以从1开始，最大到2^29-1（536870911）</span></span><br><span class="line"><span class="comment">		不可以使用其中的（19000-19999）的标识号，Protobuf协议实现中对这些进行了预留</span></span><br><span class="line"><span class="comment">		切记：要为将来可能添加的、频繁出现的标识号预留一些标识号</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="type">string</span> date = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">message </span><span class="title class_">NewsResponse</span> &#123;</span><br><span class="line">	<span class="comment">// repeated是指一个集合（数组），数组每一个元素都是News对象</span></span><br><span class="line">	<span class="comment">// List&lt;News&gt; getNewsList();</span></span><br><span class="line">	<span class="keyword">repeated</span> News news = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">message </span><span class="title class_">News</span> &#123;</span><br><span class="line">	<span class="type">int32</span> id = <span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> title = <span class="number">2</span>;</span><br><span class="line">	<span class="type">string</span> content = <span class="number">3</span>;</span><br><span class="line">	<span class="type">int64</span> createTime = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>转换命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc --java_out=. News.proto</span><br></pre></td></tr></table></figure>
+
+<p>转换结果</p>
+<p><img src="/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/image-20231031155336870.png" alt="image-20231031155336870"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">本文为个人知识学习，非原创！非作者！如本博客有侵权行为，请与我联系。</span><br><span class="line">摘录以下文章，内容根据个人需求有所删减，尊重知识产出，尊重作者知识劳动成果。</span><br><span class="line"></span><br><span class="line">作者：梦想实现家_Z</span><br><span class="line">链接：https://juejin.cn/post/7208018784073547832</span><br><span class="line">作者：CCP加油站</span><br><span class="line">链接：https://zhuanlan.zhihu.com/p/141415216</span><br><span class="line">作者：IT老齐</span><br><span class="line">链接：https://www.bilibili.com/video/BV1FZ4y187W7</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag"># 序列化</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/17/OTP-Java-Redme/" rel="prev" title="OTP-Java-Redme">
+                  <i class="fa fa-angle-left"></i> OTP-Java-Redme
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/" rel="next" title="Docx4j开发手册-1|Docx4j对象解析">
+                  Docx4j开发手册-1|Docx4j对象解析 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BigOrange</span>
+  </div><div>
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+  本网站由
+  <img src="data:image/png;base64,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" width="45px" style="display:inline;padding-top:5px;"/>
+  提供CDN加速/云存储服务
+  </a>
+  <a>&emsp;|&emsp;</a>
+  <a href="https://www.foreverblog.cn/" target="_blank" ><img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="display:inline;height:16px;"></a>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=3HGFkqwJpvEGaeV9&ck=3HGFkqwJpvEGaeV9&autoTrack=true"></script>
+<script defer src="https://total.660066.xyz/script.js" data-website-id="79434618-ab49-48f6-8d25-61792472ef8e"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"BaseOrange","repo":"BaseOrange.github.io","client_id":"8f8eb36a78230e56ee7e","client_secret":"c826afd9bd0b45f07426463094a3ad186de52bd8","admin_user":"BaseOrange","distraction_free_mode":true,"proxy":"https://proxy.660066.xyz/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"4109b1ddf8ebb693677bce82bdd9e4f8"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

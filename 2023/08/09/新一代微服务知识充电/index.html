@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="JyJm6tHJ1q5mhbqwbRl4KEUE_ms1dc_9MJ0G0GIHnq8">
+  <meta name="baidu-site-verification" content="codeva-tXW0RgD5OZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"log.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="新一代微服务知识充电">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新一代微服务知识充电">
+<meta property="og:url" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/index.html">
+<meta property="og:site_name" content="大橙子">
+<meta property="og:description" content="新一代微服务知识充电">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809103311405.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809104022596.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809104659198.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809105211459.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809112658944.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230814121050744.png">
+<meta property="article:published_time" content="2023-08-09T02:11:09.000Z">
+<meta property="article:modified_time" content="2024-11-17T12:46:27.137Z">
+<meta property="article:author" content="BigOrange">
+<meta property="article:tag" content="微服务">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809103311405.png">
+
+
+<link rel="canonical" href="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/","path":"2023/08/09/新一代微服务知识充电/","title":"新一代微服务知识充电"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>新一代微服务知识充电 | 大橙子</title>
+  
+
+
+
+
+
+
+
+  <script defer data-domain="660066.xyz" src="https://plausible.io/js/script.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="大橙子" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="大橙子" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大橙子</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-工具箱"><a href="/tools/" rel="section"><i class="fa fa-flask fa-fw"></i>工具箱</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BC%A0%E7%BB%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="nav-text">一、传统微服务的弊端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BB%A3%E7%A0%81%E4%BE%B5%E5%85%A5%E9%AB%98"><span class="nav-text">1.1 代码侵入高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80%E5%8D%95%E4%B8%80"><span class="nav-text">1.2 开发语言单一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC%E9%AB%98"><span class="nav-text">1.3 维护成本高</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-text">二、新一代微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E8%80%A6%E5%90%88%E9%98%B6%E6%AE%B5"><span class="nav-text">2.1 耦合阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%85%AC%E5%85%B1%E5%BA%93SDK"><span class="nav-text">2.2 公共库SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Sidecar%E6%A8%A1%E5%BC%8F-%E8%BE%B9%E8%BD%A6"><span class="nav-text">1.3 Sidecar模式(边车)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Service-Mesh"><span class="nav-text">1.4 Service Mesh</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Service-Mesh"><span class="nav-text">三、Service Mesh</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Service-Mesh-%E5%8A%9F%E8%83%BD"><span class="nav-text">3.1 Service Mesh 功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Service-Mesh-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">3.2 Service Mesh 解决的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Service-Mesh-%E5%8E%9F%E7%90%86"><span class="nav-text">3.3 Service Mesh 原理</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BigOrange</p>
+  <div class="site-description" itemprop="description">新的斗争开始了<br/>A new struggle has begun</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://log.660066.xyz/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigOrange">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大橙子">
+      <meta itemprop="description" content="新的斗争开始了<br/>A new struggle has begun">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="新一代微服务知识充电 | 大橙子">
+      <meta itemprop="description" content="新一代微服务知识充电">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          新一代微服务知识充电
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-08-09 10:11:09" itemprop="dateCreated datePublished" datetime="2023-08-09T10:11:09+08:00">2023-08-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-17 20:46:27" itemprop="dateModified" datetime="2024-11-17T20:46:27+08:00">2024-11-17</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">新一代微服务知识充电</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>科普一下相关名词解释</p>
+<ol>
+<li><strong>注册中心</strong>：服务提供者将自己提供的服务以及地址登记到注册中心，服务消费者则从注册中心查询所需要调用的服务的地址，然后发起请求。</li>
+<li><strong>服务注册</strong>，将提供某个服务的模块信息（通常是服务的ip和端口）注册到1个公共的组件上去（如 zookeeper）。</li>
+<li><strong>服务发现</strong>，将新注册的这个服务模块能够及时的被其他调用者发现。新增和删减都能实现自动发现。</li>
+<li><strong>RPC</strong>：全称是 Remote Procedure Call 是一种进程间通信方式。A服务器上应用，想要调用B服务器上应用提供的函数或者方法，可以通过RPC框架的实现来解决</li>
+<li><strong>熔断</strong>：当某个服务发生故障时，通过熔断该服务的调用，可以避免故障扩散到其他服务，从而保护整个系统的稳定运行。适用于<strong>高并发、高负载</strong>场景，可以避免因个别服务的故障导致整个系统负载过高。</li>
+<li><strong>降级</strong>：在服务器压力剧增的情况下，根据实际业务情况及流量，对一些服务和页面有策略的<strong>不处理</strong>或用一种<strong>简单的方式进行处理</strong></li>
+<li><strong>服务网关</strong>：API网关，服务网关可以作为服务的统一入口，提供<strong>身份校验、动态路由、负载均衡、安全管理、统计、监控、流量管理、灰度发布、压力测试</strong>等功能</li>
+<li><strong>SOA（Service Oriented Architecture）</strong>：面向服务的架构，是一种设计理念，包含多个服务，服务之间通过相互依赖最终提供一系列完成的功能。</li>
+</ol>
+<h1 id="一、传统微服务的弊端"><a href="#一、传统微服务的弊端" class="headerlink" title="一、传统微服务的弊端"></a>一、传统微服务的弊端</h1><h2 id="1-1-代码侵入高"><a href="#1-1-代码侵入高" class="headerlink" title="1.1 代码侵入高"></a>1.1 代码侵入高</h2><p>需要花费大量精力与框架和SDK进行结合，来提高框架在业务中融合，学习曲线陡峭。</p>
+<h2 id="1-2-开发语言单一"><a href="#1-2-开发语言单一" class="headerlink" title="1.2 开发语言单一"></a>1.2 开发语言单一</h2><p>微服务提倡根据需求选择不同的开发语言进行开发，传统微服务架构多语言支持难度大，例如SpringCloud支持Java。</p>
+<h2 id="1-3-维护成本高"><a href="#1-3-维护成本高" class="headerlink" title="1.3 维护成本高"></a>1.3 维护成本高</h2><p>对老旧的系统来说，维护、治理、监控难度大，过渡期需要多个团队维护。</p>
+<p>面对异构系统，需要大量精力进行维护。</p>
+<h1 id="二、新一代微服务"><a href="#二、新一代微服务" class="headerlink" title="二、新一代微服务"></a>二、新一代微服务</h1><p>为了解决上述的传统弊端，ServiceMesh出现。</p>
+<h2 id="2-1-耦合阶段"><a href="#2-1-耦合阶段" class="headerlink" title="2.1 耦合阶段"></a>2.1 耦合阶段</h2><p>在微服务架构中，<strong>服务发现</strong>、<strong>负载均衡</strong>、<strong>熔断</strong>等能力是微服务架构中重要的组成部分。微服务化之后，服务更加的分散，复杂度变得更高，起初开发者将诸如熔断、超时等功能和业务代码封装在一起，使服务具备了网络管控的能力。</p>
+<p><img src="/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809103311405.png" alt="image-20230809103311405"></p>
+<p>优：</p>
+<ul>
+<li>易于实现</li>
+</ul>
+<p>劣：</p>
+<ul>
+<li>基础设施功能（如：服务发现，负载均衡、熔断等）和业务逻辑<strong>高度耦合</strong>。</li>
+<li>每个微服务都<strong>重复实现了相同功能的代码</strong>。</li>
+<li>管理困难。如果某个服务的负载均衡发生变化，则调用它的相关服务都需要更新变化。</li>
+<li>开发者不能只关注于业务逻辑开发。</li>
+</ul>
+<h2 id="2-2-公共库SDK"><a href="#2-2-公共库SDK" class="headerlink" title="2.2 公共库SDK"></a>2.2 公共库SDK</h2><p>为基础设施功能设计为一个公共库 SDK，让服务的业务逻辑与这些公共功能降低耦合度，提高重复利用率，更重要的是开发者只需要关注公共库 SDK 的依赖及使用，而不必关注实现这些公共功能，从而更加专注于业务逻辑的开发，比如 <code>Spring Cloud</code> 框架是类似的方式。</p>
+<p><img src="/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809104022596.png" alt="image-20230809104022596"></p>
+<p>优：</p>
+<ul>
+<li>降低了服务的耦合度，提高代码利用率</li>
+<li>开发者可以更好的关注业务逻辑开发</li>
+</ul>
+<p>劣：</p>
+<ul>
+<li><p>公共库 SDK学习成本较高，需要耗费一定的时间和人力与现有系统集成，甚至需要考虑修改现有代码进行整合。</p>
+</li>
+<li><p>公共库 SDK 一般都是通过特定语言实现，<strong>缺乏多语言的支持</strong>，在对现有系统整合时有一定的局限性。</p>
+</li>
+<li><p>公共库 SDK 的管理和维护依然需要耗费开发者的大量精力，并需专门人员来进行管理维护。</p>
+</li>
+</ul>
+<h2 id="1-3-Sidecar模式-边车"><a href="#1-3-Sidecar模式-边车" class="headerlink" title="1.3 Sidecar模式(边车)"></a>1.3 Sidecar模式(边车)</h2><p>把框架作为一个代理，服务通过这个透明的代理完成所有流量的控制。</p>
+<p>这就是典型的 Sidecar 代理模式，也被翻译为”边车”代理，它作为与其他服务通信的桥梁，为服务提供额外的网络特性，并与服务独立部署，对服务零侵入，更不会受限于服务的开发语言和技术栈，如下图所示。</p>
+<p><img src="/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809104659198.png" alt="image-20230809104659198"></p>
+<p>优：</p>
+<ul>
+<li><strong>基础实施层与业务逻辑的完全隔离</strong></li>
+<li><strong>真正的基础设施层与业务逻辑层的彻底解耦</strong>。</li>
+<li><strong>更灵活的扩展，而不需要应用服务的大量改造。</strong></li>
+</ul>
+<p><strong>Sidecar主要功能：</strong></p>
+<ul>
+<li><strong>服务注册</strong>： 帮助服务注册到相应的<strong>服务注册中心</strong>，并对服务做相关的健康检查。</li>
+<li><strong>服务路由</strong>： 当应用服务调用其它服务时，<code>Sidecar</code> 可以帮助从服务发现中<strong>找到相应的服务地址，完成服务路由功能</strong>。</li>
+<li><strong>服务治理</strong> ：<code>Sidecar</code> 可以完全<strong>拦截服务进出的流量</strong>，并对其进行相应的调用<strong>链跟踪、熔断、降级、日志监控</strong>等操作，将服务治理功能集中在 <code>Sidecar</code> 中实现。</li>
+<li><strong>集中管控</strong>： 整个微服务架构体系下的所有服务<strong>完全可以通过 <code>Sidecar</code> 来进行集中管控</strong>，<strong>完成对服务的流控、下线</strong>等。</li>
+</ul>
+<h2 id="1-4-Service-Mesh"><a href="#1-4-Service-Mesh" class="headerlink" title="1.4 Service Mesh"></a>1.4 Service Mesh</h2><p>把 <code>Sidecar</code> 模式充分应用于一个庞大的微服务架构系统，为每个应用服务配套部署一个 <code>Sidecar</code> 代理，完成服务间复杂的通信，最终就会得到一个如下图所示的网络拓扑结构，这就是 <code>Service Mesh</code>，又称之为“服务网格“。</p>
+<p><img src="/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809105211459.png" alt="image-20230809105211459"></p>
+<h1 id="三、Service-Mesh"><a href="#三、Service-Mesh" class="headerlink" title="三、Service Mesh"></a>三、Service Mesh</h1><h2 id><a href="#" class="headerlink" title></a><img src="/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230809112658944.png" alt="Service Mesh部署网络结构图"></h2><p>在<code>Service Mesh</code>部署网络结构图中，<strong>绿色方块为应用服务</strong>，<strong>蓝色方块为 <code>Sidecar</code><strong>，应用</strong>服务之间通过<code>Sidecar</code>进行通信</strong>，整个服务通信形成图中的蓝色网络连线，图中所有蓝色部分就形成了<code>Service Mesh</code>。其具备如下主要特点：</p>
+<ul>
+<li>应用程序间通讯的中间层</li>
+<li>轻量级网络代理</li>
+<li>应用程序无感知</li>
+<li>解耦应用程序的重试&#x2F;超时、监控、追踪和服务发现</li>
+</ul>
+<h2 id="3-1-Service-Mesh-功能"><a href="#3-1-Service-Mesh-功能" class="headerlink" title="3.1 Service Mesh 功能"></a>3.1 Service Mesh 功能</h2><ul>
+<li><strong>动态路由。</strong>  可通过路由规则来动态路由到所请求的服务，便于不同环境、不同版本等的动态路由调整。</li>
+<li><strong>故障注入。</strong>  通过引入故障来模拟网络传输中的问题（如延迟）来验证系统的健壮性，方便完成系统的各类故障测试。</li>
+<li><strong>熔断。</strong>  通过服务降级来终止潜在的关联性错误。</li>
+<li><strong>安全。</strong>  在<code>Service Mesh</code>上实现安全机制（如<code>TLS</code>），并且很容易在基础设施层完成安全机制更新。</li>
+<li><strong>多语言支持。</strong>  作为独立运行且对业务透明的 <code>Sidecar</code> 代理，<code>Service Mesh</code> 很轻松地支持多语言的异构系统。</li>
+<li><strong>多协议支持。</strong>  同多语言一样，也支持多协议。</li>
+<li><strong>指标和分布式链路追踪。</strong></li>
+</ul>
+<p>主要体现在以下 4 个方面：</p>
+<ul>
+<li><strong>可见性：</strong> 运行时指标遥测、分布式跟踪。</li>
+<li><strong>可管理性：</strong> 服务发现、负载均衡、运行时动态路由等。</li>
+<li><strong>健壮性：</strong> 超时、重试、熔断等弹性能力。</li>
+<li><strong>安全性：</strong> 服务间访问控制、<code>TLS</code> 加密通信。</li>
+</ul>
+<h2 id="3-2-Service-Mesh-解决的问题"><a href="#3-2-Service-Mesh-解决的问题" class="headerlink" title="3.2 Service Mesh 解决的问题"></a>3.2 Service Mesh 解决的问题</h2><p><strong>基础设施层是<code>Service Mesh</code>的定位</strong>，致力于解决微服务基础设施标准化、配置化、服务化和产品化的问题。<strong>服务间通信是<code>Service Mesh</code>技术层面对的问题</strong>，对微服务屏蔽通信的复杂度，解决微服务的通信治理问题。</p>
+<p>主要解决如下 3 个维度的痛点需求：</p>
+<ul>
+<li><strong>完善的微服务基础设施</strong><ul>
+<li>开发者无需关心通信层的具体实现，也无需关注<code>RPC</code>通信。像本地调用一样使用微服务，通信相关的一起工作直接交给<code>Service Mesh</code>。</li>
+</ul>
+</li>
+<li><strong>语言无关的通信和链路治理</strong><ul>
+<li><strong><code>Service Mesh</code>改变的是通信和服务治理能力提供的方式，通过将这些能力实现从各语言业务实现中解耦，一种更加通用和标准化的方式提供，屏蔽不同语言、不同平台的差异性</strong></li>
+</ul>
+</li>
+<li><strong>通信和服务治理的标准化</strong></li>
+</ul>
+<h2 id="3-3-Service-Mesh-原理"><a href="#3-3-Service-Mesh-原理" class="headerlink" title="3.3 Service Mesh 原理"></a>3.3 Service Mesh 原理</h2><p>Service Mesh 的核心是数据平面 <code>Sidecar</code> 与控制平面 <code>Control Plane</code>，如下图：</p>
+<p><img src="/2023/08/09/%E6%96%B0%E4%B8%80%E4%BB%A3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/image-20230814121050744.png" alt="image-20230814121050744"></p>
+<p><strong>数据平面Sidecar：</strong> </p>
+<ul>
+<li><p>与服务部署在一起的轻量级网络代理，用于实现服务框架的各项功能（如，服务发现、负载均衡、限流熔断等），让服务回归业务本质。</p>
+</li>
+<li><p>数据平面可以认为是将 <code>Spring Cloud</code>、<code>Dubbo</code> 等相关的微服务框架中通信和服务治理能力独立出来的一个语言无法的进程，并且更注重通用性和扩展性。在 <code>Service Mesh</code> 中，不再将数据平面代理视为一个个独立的组件，而是将这些代理连接在一起形成一个全局的分布式网格。</p>
+</li>
+<li><p>服务节点只做业务逻辑自身的功能，服务之间的调用只需交给 <code>Sidecar</code>，由<code>Sidecar</code> 完成注册服务、服务发现、请求路由、熔断限流、日志统计等业务无关功能。</p>
+</li>
+<li><p>这个大型的服务网格并不是完全自治的，它还需要一个统一的控制节点 <code>Control Plane</code>。</p>
+</li>
+</ul>
+<p><strong>控制平面 Control Plane：</strong></p>
+<p>是用来从全局的角度上控制 <code>Sidecar</code>，相当于 <code>Service Mesh</code> 架构的大脑，控制着 <code>Sidecar</code> 来实现服务治理的各项功能。</p>
+<ul>
+<li>它负责所有 <code>Sidecar</code> 的注册，存储统一的路由表，帮助各个 <code>Sidecar</code> 进行负载均衡和请求调度；</li>
+<li>它收集所有 <code>Sidecar</code>的监控信息和日志数据。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">本文为个人知识学习，非原创！非作者！如本博客有侵权行为，请与我联系。</span><br><span class="line">摘录以下文章，内容根据个人需求有所删减，尊重知识产出，尊重作者知识劳动成果。</span><br><span class="line"></span><br><span class="line">作者：xcbeyond</span><br><span class="line">链接：https://juejin.cn/post/7026715056565911583</span><br><span class="line">链接：https://juejin.cn/post/7027092053431418910</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag"># 微服务</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/08/03/2023%E5%B9%B47%E6%9C%88Java%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="prev" title="2023年7月Java开发问题记录">
+                  <i class="fa fa-angle-left"></i> 2023年7月Java开发问题记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/08/25/%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E7%9A%84%E9%94%81%E7%9A%84%E5%AD%A6%E4%B9%A0/" rel="next" title="各种各样的锁的学习">
+                  各种各样的锁的学习 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BigOrange</span>
+  </div><div>
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+  本网站由
+  <img src="data:image/png;base64,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" width="45px" style="display:inline;padding-top:5px;"/>
+  提供CDN加速/云存储服务
+  </a>
+  <a>&emsp;|&emsp;</a>
+  <a href="https://www.foreverblog.cn/" target="_blank" ><img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="display:inline;height:16px;"></a>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=3HGFkqwJpvEGaeV9&ck=3HGFkqwJpvEGaeV9&autoTrack=true"></script>
+<script defer src="https://total.660066.xyz/script.js" data-website-id="79434618-ab49-48f6-8d25-61792472ef8e"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"BaseOrange","repo":"BaseOrange.github.io","client_id":"8f8eb36a78230e56ee7e","client_secret":"c826afd9bd0b45f07426463094a3ad186de52bd8","admin_user":"BaseOrange","distraction_free_mode":true,"proxy":"https://proxy.660066.xyz/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"807d6bf9bdb4422f13ecc7caddaac280"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

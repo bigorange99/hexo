@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="JyJm6tHJ1q5mhbqwbRl4KEUE_ms1dc_9MJ0G0GIHnq8">
+  <meta name="baidu-site-verification" content="codeva-tXW0RgD5OZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"log.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Docx4j开发手册-1|Docx4j对象解析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docx4j开发手册-1|Docx4j对象解析">
+<meta property="og:url" content="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="大橙子">
+<meta property="og:description" content="Docx4j开发手册-1|Docx4j对象解析">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102555516.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102623507.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102639944.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102643408.png">
+<meta property="article:published_time" content="2023-12-06T02:16:51.000Z">
+<meta property="article:modified_time" content="2024-11-17T12:46:27.489Z">
+<meta property="article:author" content="BigOrange">
+<meta property="article:tag" content="Docx4j">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102555516.png">
+
+
+<link rel="canonical" href="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/","path":"2023/12/06/Docx4j开发手册-1-Docx4j对象解析/","title":"Docx4j开发手册-1|Docx4j对象解析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docx4j开发手册-1|Docx4j对象解析 | 大橙子</title>
+  
+
+
+
+
+
+
+
+  <script defer data-domain="660066.xyz" src="https://plausible.io/js/script.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="大橙子" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="大橙子" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大橙子</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-工具箱"><a href="/tools/" rel="section"><i class="fa fa-flask fa-fw"></i>工具箱</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1%E3%80%81%E5%AE%98%E6%96%B9%E5%A4%87%E5%BF%98%E7%BA%B8%E6%9D%A1%EF%BC%88%E7%BF%BB%E8%AF%91%EF%BC%89"><span class="nav-text">1.1、官方备忘纸条（翻译）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-WordprocessingMLPackage-wordMLPackage"><span class="nav-text">1.2 WordprocessingMLPackage wordMLPackage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-3%E3%80%81MainDocumentPart-mainDoc"><span class="nav-text">1.3、MainDocumentPart mainDoc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-4%E3%80%81DocumentModel-documentModel"><span class="nav-text">1.4、DocumentModel documentModel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-5%E3%80%81%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">1.5、参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BigOrange</p>
+  <div class="site-description" itemprop="description">新的斗争开始了<br/>A new struggle has begun</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://log.660066.xyz/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigOrange">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大橙子">
+      <meta itemprop="description" content="新的斗争开始了<br/>A new struggle has begun">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Docx4j开发手册-1|Docx4j对象解析 | 大橙子">
+      <meta itemprop="description" content="Docx4j开发手册-1|Docx4j对象解析">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docx4j开发手册-1|Docx4j对象解析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-06 10:16:51" itemprop="dateCreated datePublished" datetime="2023-12-06T10:16:51+08:00">2023-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-17 20:46:27" itemprop="dateModified" datetime="2024-11-17T20:46:27+08:00">2024-11-17</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Docx4j开发手册-1|Docx4j对象解析</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="1-1、官方备忘纸条（翻译）"><a href="#1-1、官方备忘纸条（翻译）" class="headerlink" title="1.1、官方备忘纸条（翻译）"></a>1.1、官方备忘纸条（翻译）</h1><p><img src="/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102555516.png" alt="image-20231206102555516"></p>
+<h1 id="1-2-WordprocessingMLPackage-wordMLPackage"><a href="#1-2-WordprocessingMLPackage-wordMLPackage" class="headerlink" title="1.2 WordprocessingMLPackage wordMLPackage"></a>1.2 WordprocessingMLPackage wordMLPackage</h1><p>创建对象：WordprocessingMLPackage wordMLPackage &#x3D; WordprocessingMLPackage.load(new File(“D:&#x2F;xxx.docx”));</p>
+<ul>
+<li><p>MainDocumentPart mainDoc：</p>
+</li>
+<li><ul>
+<li>代表Word文档的主要内容。</li>
+<li>可以通过**wordMLPackage.getMainDocumentPart()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>DocumentModel documentModel：</p>
+</li>
+<li><ul>
+<li>文档模型，表示整个文档的数据模型，包含了文档的各种部分和元素。</li>
+<li>可以通过**wordMLPackage.getDocumentModel()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>Parts parts：</p>
+</li>
+<li><ul>
+<li>文档中的各个部分，如主文档部分、样式部分、编号定义部分等。</li>
+<li>可以通过**wordMLPackage.getParts()**方法获取该对象。</li>
+<li><img src="/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102623507.png" alt="image-20231206102623507"></li>
+</ul>
+</li>
+<li><p>DrawingPropsIdTracker drawingPropsIdTracker：</p>
+</li>
+<li><ul>
+<li>绘图属性ID跟踪器，用于跟踪文档中绘图元素的属性ID。</li>
+<li>可以通过**wordMLPackage.getDrawingPropsIdTracker()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>DocPropsCorePart docPropsCorePart：</p>
+</li>
+<li><ul>
+<li>文档核心属性部分，包含文档的核心属性信息，如标题、作者、主题等。</li>
+<li>可以通过**wordMLPackage.getDocPropsCorePart()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>DocPropsExtendedPart docPropsExtendedPart：</p>
+</li>
+<li><ul>
+<li>文档扩展属性部分，包含文档的扩展属性信息，如自定义属性等。</li>
+<li>可以通过**wordMLPackage.getDocPropsExtendedPart()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>ContentType contentType：</p>
+</li>
+<li><ul>
+<li>表示文档包的内容类型。</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-3、MainDocumentPart-mainDoc"><a href="#1-3、MainDocumentPart-mainDoc" class="headerlink" title="1.3、MainDocumentPart mainDoc"></a>1.3、MainDocumentPart mainDoc</h1><p><img src="/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102639944.png" alt="image-20231206102639944" style="zoom: 67%;"><img src="/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-1-Docx4j%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%90/image-20231206102643408.png" alt="image-20231206102643408" style="zoom: 150%;"></p>
+<p>主文档部分（Main Document Part）。Word文档的核心部分，包含了文档的内容、样式和结构。通过MainDocumentPart，可以访问和修改文档的段落、表格、图像等元素，并进行文档的创建和编辑操作。</p>
+<ul>
+<li><p>List<Object> content：</Object></p>
+</li>
+<li><ul>
+<li>获取<strong>文档的内容列表</strong>。</li>
+<li>这个列表包含了文档中所有的段落、表格、图像等元素的顺序集合。</li>
+<li>可以通过**mainDocumentPart.getContent()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>getStyleDefinitionsPart()：</p>
+</li>
+<li><ul>
+<li>获取<strong>文档的样式</strong>定义部分。</li>
+<li>样式定义部分包含了文档中使用的样式定义，如段落样式、字符样式、表格样式等。</li>
+<li>可以通过**mainDocumentPart.getStyleDefinitionsPart()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>getNumberingDefinitionsPart()：</p>
+</li>
+<li><ul>
+<li>获取<strong>文档的编号</strong>定义部分。</li>
+<li>编号定义部分包含了文档中使用的编号样式和列表定义。</li>
+<li>可以通过**mainDocumentPart.getNumberingDefinitionsPart()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>getFootnotesPart()：</p>
+</li>
+<li><ul>
+<li>获取<strong>文档的脚注</strong>部分。</li>
+<li>脚注部分包含了文档中使用的脚注内容。</li>
+<li>可以通过**mainDocumentPart.getFootnotesPart()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>getEndnotesPart()：</p>
+</li>
+<li><ul>
+<li>获取<strong>文档的尾注</strong>部分。</li>
+<li>尾注部分包含了文档中使用的尾注内容。</li>
+<li>可以通过**mainDocumentPart.getEndNotesPart()**方法获取该对象。</li>
+</ul>
+</li>
+<li><p>createParagraphOfText(String textContent)：</p>
+</li>
+<li><ul>
+<li>创建一个包含<strong>给定文本内容的段落</strong>。</li>
+<li>可以使用这个方法来快速创建段落并设置内容。</li>
+</ul>
+</li>
+<li><p>addObject(Object object)：</p>
+</li>
+<li><ul>
+<li>向<strong>文档中添加一个对象</strong>。</li>
+<li>可以使用这个方法将段落、表格、图像等元素添加到文档中。</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-4、DocumentModel-documentModel"><a href="#1-4、DocumentModel-documentModel" class="headerlink" title="1.4、DocumentModel documentModel"></a>1.4、DocumentModel documentModel</h1><p>整个文档模型（Document Model）。对文档的高级抽象，提供了更方便的方式来处理文档的结构和内容。DocumentModel封装了底层的XML结构，并提供了更高级的API来操作文档的元素，如段落、表格、标题等。它还提供了一些便捷的方法用于加载、保存和转换文档。</p>
+<ul>
+<li><p>List<SectionWrapper> sections</SectionWrapper></p>
+</li>
+<li><ul>
+<li>文档的章节信息</li>
+<li>可以通过**documentModel.getSections()**方法获取该对象。</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-5、参考资料"><a href="#1-5、参考资料" class="headerlink" title="1.5、参考资料"></a>1.5、参考资料</h1><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/api/overview/openxml/?view=openxml-2.8.1">https://learn.microsoft.com/zh-cn/dotnet/api/overview/openxml/?view=openxml-2.8.1</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docx4j/" rel="tag"># Docx4j</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/31/%E6%9D%A5%E8%87%AA%E8%B0%B7%E6%AD%8C%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F-Protobuf/" rel="prev" title="来自谷歌的序列化方式-Protobuf">
+                  <i class="fa fa-angle-left"></i> 来自谷歌的序列化方式-Protobuf
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/06/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-2-Docx4j%E7%9A%84%E6%AE%B5%E8%90%BD%E7%BA%A7%E5%88%AB%E4%BF%A1%E6%81%AF/" rel="next" title="Docx4j开发手册-2|Docx4j的段落级别信息">
+                  Docx4j开发手册-2|Docx4j的段落级别信息 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BigOrange</span>
+  </div><div>
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+  本网站由
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlIAAAEuCAMAAAByCQxmAAAABlBMVEUAoP8AoP+IQHPMAAAAAnRSTlML9sG5Q9oAAAfGSURBVHja7d3RbuM4EETR7v//6cUA+7DAJGuLrOpuUve+zsSU6GNKlhwngoiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIhmlv/GTJBG0t8xNyTDBCwycYIVGTjBihyeMEVqT5gitSdIkRoUpEgMClIkBgUpEoNCFGlB5Q+PyuwCSkSKhQtQ4kWKoyGibKJABSi5KEwhSnYiBSpAeRYpTCFKLwpTiFKLAhWghCdSmEKUZZHCFKLkojCFKLUoUCFKeCKFKURZFilMIUouClOIUovCFKKEJ1KYQpRjkcIUouSiMIUotShMIUp4IgUpRDkWKUwhSi0KU5BSi8IUooQnUphClGORghSi1KIwBSm1qENNPdn4S19Vc0UdOaNPNv7SV5VZFKQgJf4Sqdd9JRWkzN9G9r6vOWsm1T/bRk2ah5+w9J5DKge8hM1bkE37mH2mOknlAFLm4bNpHxNSXaTMgzccdiB1LqnCJ/ZeUupLnf2kvAMnpA58+960BdXPKqROIXXAMQ9SbyBVeWdniqlTSHVflxIOmeZOutbZe+H/wEWqntOEF/w5pI67udcEqv0FDykXqS5Q7csUpEyk+kBB6hWiMl9DqkLiG0m1iuq9yFNxVv96UZnXk1ob+/NWH/c2pYZU5v2mvh364Q4c+NbXRKpdFKSGkzpP1FRST/cAUmNElc+mepGC1K87kqeR2r7xrJrKq0mdKGrz9xogNYmUS1QUfCfs8k8nB74aUoYlxzqdKSAVrFJniQrvX21Y/enUkwpIGUmtbc9MUrFO6qJ7PMNEOU2t/rTg5z7ejyk4fE8nZXzrNpjUxtyqHng+qeZFKg4gtTHoh5+EVM0i9eWD151MQcpHKiaRqlumIFVBynsRfBapnSEhBSlIHS6qmlRAClI2UlnyFEIKUpCqJGUQtfetCiVHvoQUpLRPiOr9AKQ6SSWk3kbK/fHMmk92Pv/+PkidQWrj6zqKScV4UmnuiOPe1rwUkMqDSKW/Q0itz0z4TekAX0EqTyGVY0klpEpIeTc13aQWP/YbkEr1H+HwbnrdKrX4ywmQghSkIDXuyCcdClKQghSk1Ka0I73luhSkLiI14+r5S0l9ZUo80IR7fLoJhBSkfprb7pvG6V1fCy8ifPe8aAb68CArY8hIDfogwmWk0jj5nx5lYZBUkYpJpMJJKktIxRNShgnVTOTERWr5CbyJVNaLavp+qQpR60eZ00lFM6mOb8HL2aTiIlLZIKqbVES7qb13i8OuIXya4PVRJpPK8aTiWlKqp20wqegnFVWksoxUfPXew/tup5JUlait38I8nFR8c4nkGlI5jFSYScUgUrorP2NJBaQ8on6ZZtnl6VHXpfJlpHoWqZ/n2fQG4It3zVYadaK2vmr1eFLxYd3wLIMdt40TUkWk/nrOjWb//5+jjlS8gNTiI9r3Xvr40UmqVNTOydQFpKKMLKQKL3UuPqR7/+MeUrWiNkzdsEj9PmjcQypPIdW8SEFq7t9ba/5wy/JDeicg7iGVU0m5fg+xe5H6edy4lFTEWFN5zyIVzt9vG0CqQdTCJzuzX5SVVECqipS8GLFIXU2qQ1ScKMpLKt9NKg82NYRUXkzq+V7JP4qGqKsuIjzeJ9H+94OKbCPlHWESqUcPfuIytbcBBSeSN5DK9ROv80jFjEWq7sMzLyMVh4nKClEXfF5q62PIZ5HaHr3q8snbSB175Bsi6qeHVY/USmrlktSRpgRDGy+Zi4c6jdSJy1TMFqU21UlqaS+OW6Y043pvwUiHayS1uA9HkVKN6r6ppxxwCKnFqRltSjmm/56ebkgrKQ+NwaRcQxquHDxbxd5DapIp53juJerB/+ogtXDcW5+hMaRirqidY/LecMWkUkJqiinvWOo93NdXSiqfk5JvdTkp70hVoDSm5KTSf9ybt0yZh9HunNbg8+d14xbc16QMx+taUuYxCkHto0o1qaWXw+Zs9ZsyD6DcrfUflS0pOxvjXGgmfW6qeQ18MOzez4uWlI0z0Cgi1b1MmS9PCPfHbjKfkXp8xmBFkWOWKfctHtmuuBe6b//n+gJvVWG+trz6lGejKPnhc/dWuHy6S2+GNJo6Q5R4WrbOvGZe+yu4qzpDlIiUel62LlZMvONV8tGPw0S5fjfvi4eseRc886atl1SvqCh9tanv+ehmYs4qFSMXKfFyopubrbdmXat1Nak4+7Bn/aLED++w9y5elV5HqSUVZ4syfgPZp0s+7jueQz8IYNmUSaIqvkL3K1LqeR5529a1IYNOpP67CWHs5xG2bi17ntgZonZePgNE/dmIKOjX30uMYQ0AFet/zWWEKBrZmBMpnor3mfIuUjwR7zOFKNKaQhSJTSGKtKasixRPwAtNIYq0qBBFYlOIIq0p5yLFvL/RlFEUk/5KVIgisSlEkdaUbZFisl+KClGkNeUSxTS/FpVHFFP8XlSeRYr5fS2qsIhibkkqipkkKSnmkaSimEaSkmISSUmKGSSpKaaPlKaYOhKiYtJIyIrJIp0rpohUspgUIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiOqZ/AMg6kmnDoZrIAAAAAElFTkSuQmCC" width="45px" style="display:inline;padding-top:5px;"/>
+  提供CDN加速/云存储服务
+  </a>
+  <a>&emsp;|&emsp;</a>
+  <a href="https://www.foreverblog.cn/" target="_blank" ><img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="display:inline;height:16px;"></a>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=3HGFkqwJpvEGaeV9&ck=3HGFkqwJpvEGaeV9&autoTrack=true"></script>
+<script defer src="https://total.660066.xyz/script.js" data-website-id="79434618-ab49-48f6-8d25-61792472ef8e"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"BaseOrange","repo":"BaseOrange.github.io","client_id":"8f8eb36a78230e56ee7e","client_secret":"c826afd9bd0b45f07426463094a3ad186de52bd8","admin_user":"BaseOrange","distraction_free_mode":true,"proxy":"https://proxy.660066.xyz/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"eb730638227f783777e010d1b32d03ef"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

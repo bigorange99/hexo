@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="JyJm6tHJ1q5mhbqwbRl4KEUE_ms1dc_9MJ0G0GIHnq8">
+  <meta name="baidu-site-verification" content="codeva-tXW0RgD5OZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"log.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="【Datawhale AI 夏令营】Task1-精读baseline">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Datawhale AI 夏令营】Task2-精读baseline">
+<meta property="og:url" content="https://log.660066.xyz/2024/07/30/datawhale-task2-read-baseline/index.html">
+<meta property="og:site_name" content="大橙子">
+<meta property="og:description" content="【Datawhale AI 夏令营】Task1-精读baseline">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://log.660066.xyz/2024/07/30/datawhale-task2-read-baseline/image-20240730225012884.png">
+<meta property="article:published_time" content="2024-07-30T14:19:27.000Z">
+<meta property="article:modified_time" content="2024-11-17T12:46:27.558Z">
+<meta property="article:author" content="BigOrange">
+<meta property="article:tag" content="大模型">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Datawhale">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://log.660066.xyz/2024/07/30/datawhale-task2-read-baseline/image-20240730225012884.png">
+
+
+<link rel="canonical" href="https://log.660066.xyz/2024/07/30/datawhale-task2-read-baseline/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://log.660066.xyz/2024/07/30/datawhale-task2-read-baseline/","path":"2024/07/30/datawhale-task2-read-baseline/","title":"【Datawhale AI 夏令营】Task2-精读baseline"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【Datawhale AI 夏令营】Task2-精读baseline | 大橙子</title>
+  
+
+
+
+
+
+
+
+  <script defer data-domain="660066.xyz" src="https://plausible.io/js/script.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="大橙子" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="大橙子" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大橙子</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-工具箱"><a href="/tools/" rel="section"><i class="fa fa-flask fa-fw"></i>工具箱</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B-Prompt-Engineering"><span class="nav-text">一、提示工程(Prompt Engineering)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-text">1.1 关键概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E7%A4%BA%E4%BE%8B"><span class="nav-text">1.2 示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E8%BE%93%E5%85%A5%E9%97%AE%E9%A2%98"><span class="nav-text">1.2.1 输入问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E8%BD%AC%E5%8C%96"><span class="nav-text">1.2.2 转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%93%8D%E5%BA%94"><span class="nav-text">1.2.3 大模型响应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB"><span class="nav-text">二、代码阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%89%8D%E8%A8%80"><span class="nav-text">2.1 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E9%97%AE%E9%A2%98%E6%8E%A8%E7%90%86"><span class="nav-text">2.2 问题推理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-call-qwen-api"><span class="nav-text">2.2.1 call_qwen_api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-api-retry"><span class="nav-text">2.2.2 api_retry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-get-prompt"><span class="nav-text">2.2.3 get_prompt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-extract"><span class="nav-text">2.2.4 extract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-process-datas"><span class="nav-text">2.2.5 process_datas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-6-main"><span class="nav-text">2.2.6 main</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E7%BA%A0%E6%AD%A3%E5%92%8C%E5%AE%B9%E9%94%99"><span class="nav-text">2.3 纠正和容错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-has-complete-answer"><span class="nav-text">2.3.1 has_complete_answer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-filter-problems"><span class="nav-text">2.3.2 filter_problems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-find-missing-ids"><span class="nav-text">2.3.3 find_missing_ids</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-%E8%A1%A5%E9%94%99"><span class="nav-text">2.3.4  补错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-5-%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-text">2.3.5 输出结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%90%86%E8%A7%A3"><span class="nav-text">三、理解</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BigOrange</p>
+  <div class="site-description" itemprop="description">新的斗争开始了<br/>A new struggle has begun</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://log.660066.xyz/2024/07/30/datawhale-task2-read-baseline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigOrange">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大橙子">
+      <meta itemprop="description" content="新的斗争开始了<br/>A new struggle has begun">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【Datawhale AI 夏令营】Task2-精读baseline | 大橙子">
+      <meta itemprop="description" content="【Datawhale AI 夏令营】Task1-精读baseline">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Datawhale AI 夏令营】Task2-精读baseline
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-30 22:19:27" itemprop="dateCreated datePublished" datetime="2024-07-30T22:19:27+08:00">2024-07-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-17 20:46:27" itemprop="dateModified" datetime="2024-11-17T20:46:27+08:00">2024-11-17</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">【Datawhale AI 夏令营】Task1-精读baseline</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一、提示工程-Prompt-Engineering"><a href="#一、提示工程-Prompt-Engineering" class="headerlink" title="一、提示工程(Prompt Engineering)"></a>一、提示工程(Prompt Engineering)</h1><h2 id="1-1-关键概念"><a href="#1-1-关键概念" class="headerlink" title="1.1 关键概念"></a>1.1 关键概念</h2><ol>
+<li>Prompt（提示）：给定的一段文本或指令，用于启动或引导AI模型响应。</li>
+<li>Prompt Design（提示设计）：设计良好的提示，目的是帮助模型更好理解输入的内容。</li>
+<li>Few-shot Learning（少样本学习）：提供给模型几个示例，让模型学习并应用于新的任务或数据点上。</li>
+<li>Zero-shot Learning（零样本学习）：不提供任何示例，仅通过明确的指令或描述来引导模型完成任务。</li>
+<li>In-context Learning（基于上下文的学习）：利用直接在提示中提供的上下文信息来进行学习和推理。</li>
+<li>Chain-of-thought Prompting（思维链提示）：通过在提示中加入中间步骤或思考过程来引导模型产生更复杂的推理和回答。</li>
+</ol>
+<h2 id="1-2-示例"><a href="#1-2-示例" class="headerlink" title="1.2 示例"></a>1.2 示例</h2><h3 id="1-2-1-输入问题"><a href="#1-2-1-输入问题" class="headerlink" title="1.2.1 输入问题"></a>1.2.1 输入问题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&#x27;problem&#x27;</span>: </span><br><span class="line">        <span class="string">&#x27;有一群人和一些食物类型。下列是关于这些个体和食物的已知信息：\n\n1. 鸡肉是一种食物。\n2. 苹果是一种食物。\n3. 如果X吃了Y，且X活着，则Y是一种食物。\n4. Bill存活。\n5. Bill吃了花生。\n6. John吃所有食物。\n7. Sue吃所有Bill吃的食物。\n8. John喜欢所有食物。\n\n根据以上信息，回答以下选择题：&#x27;</span>, </span><br><span class="line">   <span class="string">&#x27;questions&#x27;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&#x27;question&#x27;</span>: <span class="string">&#x27;选择题 1：\n谁喜欢吃花生？&#x27;</span>, </span><br><span class="line">        <span class="string">&#x27;options&#x27;</span>: [<span class="string">&#x27;Bill&#x27;</span>, <span class="string">&#x27;Sue&#x27;</span>, <span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;None of the above&#x27;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    ], <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;round1_test_data_000&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-2-转化"><a href="#1-2-2-转化" class="headerlink" title="1.2.2 转化"></a>1.2.2 转化</h3><p>上面的问题字典转化为MD格式的prompt</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">你是一个逻辑推理专家，擅长解决逻辑推理问题。以下是一个逻辑推理的题目，形式为单项选择题。所有的问题都是（close-world assumption）闭世界假设，即未观测事实都为假。请逐步分析问题并在最后一行输出答案，最后一行的格式为&quot;答案是：A&quot;。题目如下：</span><br><span class="line"></span><br><span class="line"><span class="section">###题目:</span></span><br><span class="line">有一群人和一些食物类型。下列是关于这些个体和食物的已知信息：</span><br><span class="line"></span><br><span class="line">鸡肉是一种食物。</span><br><span class="line">苹果是一种食物。</span><br><span class="line">如果X吃了Y，且X活着，则Y是一种食物。</span><br><span class="line">Bill存活。</span><br><span class="line">Bill吃了花生。</span><br><span class="line">John吃所有食物。</span><br><span class="line">Sue吃所有Bill吃的食物。</span><br><span class="line">John喜欢所有食物。</span><br><span class="line"></span><br><span class="line">根据以上信息，回答以下选择题：</span><br><span class="line"></span><br><span class="line"><span class="section">###问题:</span></span><br><span class="line">选择题 1：</span><br><span class="line">谁喜欢吃花生？</span><br><span class="line">A. Bill</span><br><span class="line">B. Sue</span><br><span class="line">C. John</span><br><span class="line">D. None of the above</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>我们看到上述生成的prompt，首先告诉了模型，你要”作为“什么，然后”干“什么。(贫僧从东土大唐来，前往西天拜佛求经)</p>
+<ul>
+<li><p>作为什么：主要是让模型，把自己认为是那方面的专家。</p>
+</li>
+<li><p>干什么：尽可能详细的告诉模型，你干什么事（分析问题、最后一行输入答案），有什么限制（例如上述题目是单选题、所有题目都是闭世界假设、最后一行的格式）</p>
+</li>
+</ul>
+</li>
+<li><p>“预防针”打完了，就要步入正题了。告诉大模型题目是什么，问题是什么，选项有哪些。</p>
+</li>
+</ol>
+<h3 id="1-2-3-大模型响应"><a href="#1-2-3-大模型响应" class="headerlink" title="1.2.3 大模型响应"></a>1.2.3 大模型响应</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;status_code&quot;</span><span class="punctuation">:</span> <span class="number">200</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;request_id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;18d43478-2aec-92be-8840-cd3bb08009cf&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;code&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;output&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;finish_reason&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;choices&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;finish_reason&quot;</span><span class="punctuation">:</span> <span class="string">&quot;stop&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                    <span class="attr">&quot;role&quot;</span><span class="punctuation">:</span> <span class="string">&quot;assistant&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="attr">&quot;content&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我们可以通过分析给出的信息来解答这个问题。\n\n首先，我们知道Bill吃了花生（根据第5条信息），并且Bill还活着（根据第4条信息）。根据第3条规则，“如果X吃了Y，且X活着，则Y是一种食物”，我们可以推断出花生是一种食物。\n\n接下来，我们知道John吃所有食物（根据第6条信息），并且John喜欢所有食物（根据第8条信息）。既然花生是一种食物，那么John应该也吃花生，并且喜欢花生。\n\nSue吃所有Bill吃的食物（根据第7条信息），既然Bill吃了花生，那么Sue也应该吃花生。\n\n所以，喜欢吃花生的人有Bill、Sue和John。\n\n答案是：C. John\n\n但是，题目要求选择一个选项，而实际上Bill、Sue和John都喜欢吃花生。然而，在给出的选项中，只有John被明确列出作为喜欢吃花生的人（选项C）。因此，虽然Bill和Sue也喜欢吃花生，但根据题目要求，正确答案应当是包含在选项中的那个，即John。\n\n答案是：C. John&quot;</span></span><br><span class="line">                <span class="punctuation">&#125;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;usage&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;input_tokens&quot;</span><span class="punctuation">:</span> <span class="number">210</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;output_tokens&quot;</span><span class="punctuation">:</span> <span class="number">223</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;total_tokens&quot;</span><span class="punctuation">:</span> <span class="number">433</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，output.choices.message.content中的模型响应，首先分析了上述题目中的信息，在分析过程中，解答出了三个答案。</p>
+<p>根据我们提示中说到的，“题目是单选题”，模型又继续推理出了更准确的一个答案。根据提示要求，将答案输出在了最后一行。</p>
+<h1 id="二、代码阅读"><a href="#二、代码阅读" class="headerlink" title="二、代码阅读"></a>二、代码阅读</h1><h2 id="2-1-前言"><a href="#2-1-前言" class="headerlink" title="2.1 前言"></a>2.1 前言</h2><p>baseline共分为了两部分。</p>
+<p>第一部分：借助Qwen的API，进行问题的推理。</p>
+<p>第二部分：因各种原因，导致Qwen没有推理出来的答案进行纠正和容错。</p>
+<img src="/2024/07/30/datawhale-task2-read-baseline/image-20240730225012884.png" alt="image-20240730225012884" style="zoom: 67%;">
+
+<p>偷个懒吧。直接从讲义中拷贝过来。</p>
+<p>我目前是在职的Java开发，略懂点前端开发。python也能看懂，但仅停留在能看懂，上次接触python还是大二那年，过去也有个三四年了。</p>
+<h2 id="2-2-问题推理"><a href="#2-2-问题推理" class="headerlink" title="2.2 问题推理"></a>2.2 问题推理</h2><h3 id="2-2-1-call-qwen-api"><a href="#2-2-1-call-qwen-api" class="headerlink" title="2.2.1 call_qwen_api"></a>2.2.1 call_qwen_api</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">call_qwen_api</span>(<span class="params">MODEL_NAME, query</span>):</span><br><span class="line">    <span class="comment"># 这里采用dashscope的api调用模型推理，通过http传输的json封装返回结果</span></span><br><span class="line">    messages = [</span><br><span class="line">        &#123;<span class="string">&#x27;role&#x27;</span>: <span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;content&#x27;</span>: query&#125;]</span><br><span class="line">    response = dashscope.Generation.call(</span><br><span class="line">        MODEL_NAME,</span><br><span class="line">        messages=messages,</span><br><span class="line">        result_format=<span class="string">&#x27;message&#x27;</span>,  <span class="comment"># 将结果设置为消息格式。</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> response.status_code == HTTPStatus.OK:</span><br><span class="line">        <span class="built_in">print</span>(response)</span><br><span class="line">        <span class="keyword">return</span> response[<span class="string">&#x27;output&#x27;</span>][<span class="string">&#x27;choices&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;message&#x27;</span>][<span class="string">&#x27;content&#x27;</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Request id: %s, Status code: %s, error code: %s, error message: %s&#x27;</span> % (</span><br><span class="line">            response.request_id, response.status_code,</span><br><span class="line">            response.code, response.message</span><br><span class="line">        ))</span><br><span class="line">        <span class="keyword">raise</span> Exception()</span><br></pre></td></tr></table></figure>
+
+<p>这段代码主要就是调用Qwen的api。</p>
+<p>dashscope是阿里模型服务灵积的一个包吧。通过这个包，可以边界的调用，阿里云上的模型服务，进行推理等操作。其实说简单点，就是个SDK，阿里云将模型部署好，开发了个SDK，方便我们调用。具体的其他用法，可以参考官网的<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/dashscope/">开发文档</a></p>
+<p>我们继续往下看这段代码，如果调用返回状态为OK。那么将模型的对题目的响应返回出去。</p>
+<p>如果状态不是OK，那么，就打印错误日志，抛出异常。</p>
+<h3 id="2-2-2-api-retry"><a href="#2-2-2-api-retry" class="headerlink" title="2.2.2 api_retry"></a>2.2.2 <strong>api_retry</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">api_retry</span>(<span class="params">MODEL_NAME, query</span>):</span><br><span class="line">    <span class="comment"># 最大尝试次数</span></span><br><span class="line">    max_retries = <span class="number">5</span></span><br><span class="line">    <span class="comment"># 再次尝试等待时间</span></span><br><span class="line">    retry_delay = <span class="number">60</span>  <span class="comment"># in seconds</span></span><br><span class="line">    attempts = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> attempts &lt; max_retries:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> call_qwen_api(MODEL_NAME, query)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            attempts += <span class="number">1</span>   </span><br><span class="line">            <span class="keyword">if</span> attempts &lt; max_retries:</span><br><span class="line">                logger.warning(<span class="string">f&quot;Attempt <span class="subst">&#123;attempts&#125;</span> failed for text: <span class="subst">&#123;query&#125;</span>. Retrying in <span class="subst">&#123;retry_delay&#125;</span> seconds...&quot;</span>)</span><br><span class="line">                time.sleep(retry_delay)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                logger.error(<span class="string">f&quot;All <span class="subst">&#123;max_retries&#125;</span> attempts failed for text: <span class="subst">&#123;query&#125;</span>. Error: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">                <span class="keyword">raise</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码就是API的重试机制，简单的说，就是当API调用异常了，在5分钟内，每1分钟重新请求一次，共尝试5次。</p>
+<p>再次过程中，捕获call_qwen_api方法中抛出的异常，存储到日志文件中。</p>
+<h3 id="2-2-3-get-prompt"><a href="#2-2-3-get-prompt" class="headerlink" title="2.2.3 get_prompt"></a>2.2.3 <strong>get_prompt</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里定义了prompt推理模版</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_prompt</span>(<span class="params">problem, question, options</span>):</span><br><span class="line"></span><br><span class="line">    options = <span class="string">&#x27;\n&#x27;</span>.join(<span class="string">f&quot;<span class="subst">&#123;<span class="string">&#x27;ABCDEFG&#x27;</span>[i]&#125;</span>. <span class="subst">&#123;o&#125;</span>&quot;</span> <span class="keyword">for</span> i, o <span class="keyword">in</span> <span class="built_in">enumerate</span>(options))</span><br><span class="line"></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;你是一个逻辑推理专家，擅长解决逻辑推理问题。以下是一个逻辑推理的题目，形式为单项选择题。所有的问题都是（close-world assumption）闭世界假设，即未观测事实都为假。请逐步分析问题并在最后一行输出答案，最后一行的格式为&quot;答案是：A&quot;。题目如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 题目:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;problem&#125;</span></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 问题:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;question&#125;</span></span></span><br><span class="line"><span class="string"><span class="subst">&#123;options&#125;</span></span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># print(prompt)</span></span><br><span class="line">    <span class="keyword">return</span> prompt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这段代码，就是真家伙了。将需要推理的题目，转换成提示词模板。</p>
+<p>个人感觉，如果想提分，这里是可以进行优化的，具体优化方法，我不知道。因为刚开始接触大模型应用，不管是数据清洗、提示词工程、还是推理都不是很了解。如果各位有幸访问到我的博客，可以在评论区交流，我也会多多吸取大家的经验，十份感谢。</p>
+<h3 id="2-2-4-extract"><a href="#2-2-4-extract" class="headerlink" title="2.2.4 extract"></a>2.2.4 extract</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里使用extract抽取模获得抽取的结果</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">extract</span>(<span class="params">input_text</span>):</span><br><span class="line">    ans_pattern = re.<span class="built_in">compile</span>(<span class="string">r&quot;答案是：(.)&quot;</span>, re.S)</span><br><span class="line"></span><br><span class="line">    problems = ans_pattern.findall(input_text)</span><br><span class="line">    <span class="comment"># print(problems)</span></span><br><span class="line">    <span class="keyword">if</span>(problems == <span class="string">&#x27;&#x27;</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;A&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> problems[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<p>这段代码，主要就是从模型返回的响应中，获取答案。如果找不答案，那么就返回一个固定的A答案。算是容错的一种方式。</p>
+<p>其实我觉得也可以随机返回一个答案，不过都是概率问题（猴子算法哈哈哈哈哈哈），对错就不好说了。</p>
+<h3 id="2-2-5-process-datas"><a href="#2-2-5-process-datas" class="headerlink" title="2.2.5 process_datas"></a>2.2.5 process_datas</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">process_datas</span>(<span class="params">datas,MODEL_NAME</span>):</span><br><span class="line">    results = []</span><br><span class="line">    <span class="comment"># 定义线程池 选择16线程</span></span><br><span class="line">    <span class="keyword">with</span> ThreadPoolExecutor(max_workers=<span class="number">16</span>) <span class="keyword">as</span> executor:</span><br><span class="line">        <span class="comment"># 这里我们使用future_data 存储每个线程的数据</span></span><br><span class="line">        future_data = &#123;&#125;</span><br><span class="line">        <span class="comment"># 这里的lens记录了调用api的次数，也就是我们每个问题背景下的所有子问题之和。</span></span><br><span class="line">        lens = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 送入多线程任务</span></span><br><span class="line">        <span class="comment"># 这里每个data下是一个问题背景，其中包含多个子问题。</span></span><br><span class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> tqdm(datas, desc=<span class="string">&quot;Submitting tasks&quot;</span>, total=<span class="built_in">len</span>(datas)):</span><br><span class="line">            problem = data[<span class="string">&#x27;problem&#x27;</span>]</span><br><span class="line">            <span class="comment"># 这里面我们用enumerate方法每次循环得到问题的序号id和实际的问题。</span></span><br><span class="line">            <span class="keyword">for</span> <span class="built_in">id</span>,question <span class="keyword">in</span> <span class="built_in">enumerate</span>(data[<span class="string">&#x27;questions&#x27;</span>]):</span><br><span class="line">                prompt = get_prompt(problem, </span><br><span class="line">                                    question[<span class="string">&#x27;question&#x27;</span>], </span><br><span class="line">                                    question[<span class="string">&#x27;options&#x27;</span>],</span><br><span class="line">                                    )</span><br><span class="line">                <span class="comment"># 这里送入线程池等待处理，使用api_retry，向api_retry传入MODEL_NAME, prompt参数</span></span><br><span class="line">                future = executor.submit(api_retry, MODEL_NAME, prompt)</span><br><span class="line">                <span class="comment"># 每个线程我们存储对应的json问题数据以及问题序号id，这样我们就能定位出执行的是哪个子问题</span></span><br><span class="line">                future_data[future] = (data,<span class="built_in">id</span>)</span><br><span class="line">                time.sleep(<span class="number">0.6</span>)  <span class="comment"># 控制每0.6秒提交一个任务 防止接口超过并发数</span></span><br><span class="line">                lens += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 处理多线程任务</span></span><br><span class="line">        <span class="keyword">for</span> future <span class="keyword">in</span> tqdm(as_completed(future_data), total=lens, desc=<span class="string">&quot;Processing tasks&quot;</span>):</span><br><span class="line">            <span class="comment"># print(&#x27;data&#x27;,data)</span></span><br><span class="line">            <span class="comment"># 取出每个线程中的字典数据及对应的问题id</span></span><br><span class="line">            data = future_data[future][<span class="number">0</span>]</span><br><span class="line">            problem_id = future_data[future][<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 获取api运行结果</span></span><br><span class="line">                res  = future.result()</span><br><span class="line">                <span class="comment"># 抽取大语言模型返回结果</span></span><br><span class="line">                extract_response = extract(res)</span><br><span class="line">                <span class="comment"># print(&#x27;res&#x27;,extract_response)</span></span><br><span class="line">                <span class="comment"># 装入answer字段</span></span><br><span class="line">                data[<span class="string">&#x27;questions&#x27;</span>][problem_id][<span class="string">&#x27;answer&#x27;</span>] = extract_response</span><br><span class="line">                <span class="comment"># 在结果列表中新增数据字典</span></span><br><span class="line">                results.append(data)</span><br><span class="line">                <span class="comment"># print(&#x27;data&#x27;,data)</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                logger.error(<span class="string">f&quot;Failed to process text: <span class="subst">&#123;data&#125;</span>. Error: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> results</span><br></pre></td></tr></table></figure>
+
+<p>这段代码，注释写的很清晰。就是创建线程池，并发处理。</p>
+<p>我们调用的是Qwen的API，并发处理应该问题不大，毕竟阿里云是在国内云服务厂商也是大牛级别的存在，但是在自己机器上并发处理，不太清楚会不会把服务打死。</p>
+<p>主要是我也没法尝试，在自己机器上会不会打死，因为公司发的这个ThinkPad，实在是让人抓马。攒钱，2026年顺便薅公司更新机器的羊毛，上MacBook Pro。</p>
+<p>不扯淡了，<strong>这里我突然想起了一个问题，如果我们不是并发执行任务，而是想使用ChatGPT一样，先上来使用提示词告诉模型要做什么。然后一个问题一个问题的问，基于上下文的这种情况，会不会提高模型响应答案的准确率？</strong></p>
+<h3 id="2-2-6-main"><a href="#2-2-6-main" class="headerlink" title="2.2.6 main"></a>2.2.6 main</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">ifn, ofn</span>):</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(ofn):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    data = []</span><br><span class="line">    <span class="comment"># 按行读取数据</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(ifn) <span class="keyword">as</span> reader:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> reader:</span><br><span class="line">            sample = json.loads(line)</span><br><span class="line">            data.append(sample)</span><br><span class="line">    datas = data</span><br><span class="line">    <span class="comment"># print(data)</span></span><br><span class="line">    <span class="comment"># 均匀地分成多个数据集</span></span><br><span class="line">    return_list = process_datas(datas,MODEL_NAME)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(return_list))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;All tasks finished!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> return_list</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"><span class="comment"># 这里给了一个抽取范例参考</span></span><br><span class="line">    a = extract(<span class="string">&quot;&quot;&quot;根据欧几里得算法，逐步解析计算两个数6和7的最大公约数（gcd）的步骤如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. 判断6和7是否相等：不相等。</span></span><br><span class="line"><span class="string">2. 判断6和7大小关系，7 &gt; 6，所以用更大的数7减去较小的数6得到结果1。</span></span><br><span class="line"><span class="string">3. 现在计算6和1的最大公约数。</span></span><br><span class="line"><span class="string">4. 6 &gt; 1，根据算法用更大的数6减去较小的数1得到结果5。</span></span><br><span class="line"><span class="string">5. 再计算5和1的最大公约数。</span></span><br><span class="line"><span class="string">6. 5 &gt; 1，用5减去1得到结果4。</span></span><br><span class="line"><span class="string">7. 再计算4和1的最大公约数。</span></span><br><span class="line"><span class="string">8. 4 &gt; 1，用4减去1得到结果3。</span></span><br><span class="line"><span class="string">9. 再计算3和1的最大公约数。</span></span><br><span class="line"><span class="string">10. 3 &gt; 1，用3减去1得到结果2。</span></span><br><span class="line"><span class="string">11. 再计算2和1的最大公约数。</span></span><br><span class="line"><span class="string">12. 2 &gt; 1，用2减去1得到结果1。</span></span><br><span class="line"><span class="string">13. 最后计算1和1的最大公约数，两数相等，gcd即为这两个数，也就是1。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">因此，6和7的最大公约数是1。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">答案是：C.&quot;&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">    <span class="comment"># 调用主函数</span></span><br><span class="line">    return_list = main(<span class="string">&#x27;round1_test_data.jsonl&#x27;</span>, <span class="string">&#x27;upload.jsonl&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>主函数，主要就是调用上述方法，让模型对题目进行推理。也没啥好讲的。</p>
+<h2 id="2-3-纠正和容错"><a href="#2-3-纠正和容错" class="headerlink" title="2.3 纠正和容错"></a>2.3 纠正和容错</h2><h3 id="2-3-1-has-complete-answer"><a href="#2-3-1-has-complete-answer" class="headerlink" title="2.3.1 has_complete_answer"></a>2.3.1 has_complete_answer</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">has_complete_answer</span>(<span class="params">questions</span>):</span><br><span class="line">    <span class="comment"># 这里假设完整答案的判断逻辑是：每个question都有一个&#x27;answer&#x27;键</span></span><br><span class="line">    <span class="keyword">for</span> question <span class="keyword">in</span> questions:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;answer&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> question:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>检查答案是否完整，如果question有answer返回真，没有就返回假。</p>
+<h3 id="2-3-2-filter-problems"><a href="#2-3-2-filter-problems" class="headerlink" title="2.3.2 filter_problems"></a>2.3.2 filter_problems</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">filter_problems</span>(<span class="params">data</span>):</span><br><span class="line">    result = []</span><br><span class="line">    problem_set = <span class="built_in">set</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> data:</span><br><span class="line">        <span class="comment"># print(&#x27;处理的item&#x27; ,item)</span></span><br><span class="line">        problem = item[<span class="string">&#x27;problem&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> problem <span class="keyword">in</span> problem_set:</span><br><span class="line">            <span class="comment"># 找到已存在的字典</span></span><br><span class="line">            <span class="keyword">for</span> existing_item <span class="keyword">in</span> result:</span><br><span class="line">                <span class="keyword">if</span> existing_item[<span class="string">&#x27;problem&#x27;</span>] == problem:</span><br><span class="line">                    <span class="comment"># 如果当前字典有完整答案，替换已存在的字典</span></span><br><span class="line">                    <span class="keyword">if</span> has_complete_answer(item[<span class="string">&#x27;questions&#x27;</span>]):</span><br><span class="line">                        existing_item[<span class="string">&#x27;questions&#x27;</span>] = item[<span class="string">&#x27;questions&#x27;</span>]</span><br><span class="line">                        existing_item[<span class="string">&#x27;id&#x27;</span>] = item[<span class="string">&#x27;id&#x27;</span>]</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 如果当前字典有完整答案，添加到结果列表</span></span><br><span class="line">            <span class="keyword">if</span> has_complete_answer(item[<span class="string">&#x27;questions&#x27;</span>]):</span><br><span class="line">                result.append(item)</span><br><span class="line">                problem_set.add(problem)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">return_list = filter_problems(return_list)</span><br><span class="line"><span class="comment"># 排序工作 通过id字段后三位代表序号</span></span><br><span class="line">sorted_data = <span class="built_in">sorted</span>(return_list, key=<span class="keyword">lambda</span> x: <span class="built_in">int</span>(<span class="built_in">str</span>(x[<span class="string">&#x27;id&#x27;</span>])[-<span class="number">3</span>:]))</span><br><span class="line"><span class="built_in">print</span>(sorted_data)</span><br></pre></td></tr></table></figure>
+
+<p>问题过滤器，将所有的问题，存入一个字典，根据id的后三位，进行排序</p>
+<h3 id="2-3-3-find-missing-ids"><a href="#2-3-3-find-missing-ids" class="headerlink" title="2.3.3 find_missing_ids"></a>2.3.3 find_missing_ids</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">find_missing_ids</span>(<span class="params">dict_list</span>):</span><br><span class="line">    <span class="comment"># 提取所有序号</span></span><br><span class="line">    extracted_ids = &#123;<span class="built_in">int</span>(d[<span class="string">&#x27;id&#x27;</span>][-<span class="number">3</span>:]) <span class="keyword">for</span> d <span class="keyword">in</span> dict_list&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建0-500的序号集合</span></span><br><span class="line">    all_ids = <span class="built_in">set</span>(<span class="built_in">range</span>(<span class="number">500</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 找出缺失的序号</span></span><br><span class="line">    missing_ids = all_ids - extracted_ids</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sorted</span>(missing_ids)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例字典列表</span></span><br><span class="line">dict_list = sorted_data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找出缺失的序号</span></span><br><span class="line">missing_ids = find_missing_ids(dict_list)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;缺失的序号:&quot;</span>, missing_ids)</span><br><span class="line"></span><br><span class="line"><span class="built_in">len</span>(missing_ids)</span><br></pre></td></tr></table></figure>
+
+<p>这段代码，就是将没有返回响应的题目找出来。返回了一个缺失题目的id集合。</p>
+<h3 id="2-3-4-补错"><a href="#2-3-4-补错" class="headerlink" title="2.3.4  补错"></a>2.3.4  补错</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data  = []</span><br><span class="line">with open(&#x27;round1_test_data.jsonl&#x27;) as reader:</span><br><span class="line">    for id,line in enumerate(reader):</span><br><span class="line">        if(id in missing_ids):</span><br><span class="line">            sample = json.loads(line)</span><br><span class="line">            for question in sample[&#x27;questions&#x27;]:</span><br><span class="line">                question[&#x27;answer&#x27;] = &#x27;A&#x27;</span><br><span class="line">            sorted_data.append(sample)</span><br><span class="line">sorted_data = sorted(sorted_data, key=lambda x: int(str(x[&#x27;id&#x27;])[-3:]))</span><br></pre></td></tr></table></figure>
+
+<p>这段代码就是将2.3.3中缺失响应的题目的答案，固定填写为A。Datawhale的讲义中讲到，可以再推一遍，然后填写到这里。<strong>不过会加长运行时间</strong>。</p>
+<h3 id="2-3-5-输出结果"><a href="#2-3-5-输出结果" class="headerlink" title="2.3.5 输出结果"></a>2.3.5 输出结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;upload.jsonl&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> writer:</span><br><span class="line">    <span class="keyword">for</span> sample <span class="keyword">in</span> sorted_data:</span><br><span class="line">        writer.write(json.dumps(sample, ensure_ascii=<span class="literal">False</span>))</span><br><span class="line">        writer.write(<span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>没啥可讲的，了解。</p>
+<h1 id="三、理解"><a href="#三、理解" class="headerlink" title="三、理解"></a>三、理解</h1><p>通过代码的阅读，我们可以知道，Baseline到底带着我们干了什么。</p>
+<p>主要就是生成提示词，调用模型，对问题进行推理，对模型返回的答案进行处理（记录、纠错、容错），输出结果。</p>
+<p>周围好多人跟我说，你这不就是跟着Datawhale学了一下怎么调用API嘛。</p>
+<p>非也！其实本Task，我起码了解的Prompt提示工程。在推理过程中，也产生了一些自己的想法和疑问。在专业助教老师没有讲解的情况下，作为一个成年人，一个“优秀”的新时代青年，一个“牛X” 的程序员。我们完全可以将想法和疑问，交给大模型，让大模型来对我们的想法和疑问进行分析和解答。</p>
+<p>学会学习，不能读死书，掌握灵活的学习方法，先进的学习工具，才能让我们更快地进步。</p>
+<p>声明如下：</p>
+<p>本篇文章提示工程章节，参考了Datawhale助教老师讲义以及同义千问的解答。代码阅读部分，参考了Datawhale助教老师的讲义，根据自己的理解进行了梳理。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag"># 大模型</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/Datawhale/" rel="tag"># Datawhale</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/25/datawhale-task1-baseline/" rel="prev" title="【Datawhale AI 夏令营】Task1-体验一站式baseline">
+                  <i class="fa fa-angle-left"></i> 【Datawhale AI 夏令营】Task1-体验一站式baseline
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/07/31/datawhale-task3-fine-tuning/" rel="next" title="【Datawhale AI 夏令营】Task3-模型微调">
+                  【Datawhale AI 夏令营】Task3-模型微调 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BigOrange</span>
+  </div><div>
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+  本网站由
+  <img src="data:image/png;base64,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" width="45px" style="display:inline;padding-top:5px;"/>
+  提供CDN加速/云存储服务
+  </a>
+  <a>&emsp;|&emsp;</a>
+  <a href="https://www.foreverblog.cn/" target="_blank" ><img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="display:inline;height:16px;"></a>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=3HGFkqwJpvEGaeV9&ck=3HGFkqwJpvEGaeV9&autoTrack=true"></script>
+<script defer src="https://total.660066.xyz/script.js" data-website-id="79434618-ab49-48f6-8d25-61792472ef8e"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"BaseOrange","repo":"BaseOrange.github.io","client_id":"8f8eb36a78230e56ee7e","client_secret":"c826afd9bd0b45f07426463094a3ad186de52bd8","admin_user":"BaseOrange","distraction_free_mode":true,"proxy":"https://proxy.660066.xyz/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"c555457def274546f88e944daf6160ad"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

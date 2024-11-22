@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="JyJm6tHJ1q5mhbqwbRl4KEUE_ms1dc_9MJ0G0GIHnq8">
+  <meta name="baidu-site-verification" content="codeva-tXW0RgD5OZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"log.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Docx4j开发手册-7|Docx4j的页码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docx4j开发手册-7|Docx4j的页码">
+<meta property="og:url" content="https://log.660066.xyz/2024/03/15/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-7-Docx4j%E7%9A%84%E9%A1%B5%E7%A0%81/index.html">
+<meta property="og:site_name" content="大橙子">
+<meta property="og:description" content="Docx4j开发手册-7|Docx4j的页码">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-15T01:46:26.000Z">
+<meta property="article:modified_time" content="2024-11-17T12:46:27.369Z">
+<meta property="article:author" content="BigOrange">
+<meta property="article:tag" content="Docx4j">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://log.660066.xyz/2024/03/15/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-7-Docx4j%E7%9A%84%E9%A1%B5%E7%A0%81/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://log.660066.xyz/2024/03/15/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-7-Docx4j%E7%9A%84%E9%A1%B5%E7%A0%81/","path":"2024/03/15/Docx4j开发手册-7-Docx4j的页码/","title":"Docx4j开发手册-7|Docx4j的页码"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docx4j开发手册-7|Docx4j的页码 | 大橙子</title>
+  
+
+
+
+
+
+
+
+  <script defer data-domain="660066.xyz" src="https://plausible.io/js/script.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="大橙子" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="大橙子" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大橙子</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-工具箱"><a href="/tools/" rel="section"><i class="fa fa-flask fa-fw"></i>工具箱</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E6%96%87%E6%A1%A3%E6%88%96%E8%80%85%E8%AF%BB%E5%8F%96%E6%96%87%E6%A1%A3"><span class="nav-text">一、创建文档或者读取文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%94%9F%E6%88%90%E9%A1%B5%E7%A0%81%E7%9B%B8%E5%85%B3%E9%80%BB%E8%BE%91"><span class="nav-text">二、生成页码相关逻辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E5%8C%85%E5%90%AB%E9%A1%B5%E7%A0%81%E7%9A%84%E8%84%9A%E6%B3%A8"><span class="nav-text">三、生成一个包含页码的脚注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%88%9B%E5%BB%BA%E9%A1%B5%E8%84%9A%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB"><span class="nav-text">四、创建页脚引用关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%9B%B8%E5%85%B3%E8%BE%85%E5%8A%A9%E6%96%B9%E6%B3%95"><span class="nav-text">五、相关辅助方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BigOrange</p>
+  <div class="site-description" itemprop="description">新的斗争开始了<br/>A new struggle has begun</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://log.660066.xyz/2024/03/15/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-7-Docx4j%E7%9A%84%E9%A1%B5%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigOrange">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大橙子">
+      <meta itemprop="description" content="新的斗争开始了<br/>A new struggle has begun">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Docx4j开发手册-7|Docx4j的页码 | 大橙子">
+      <meta itemprop="description" content="Docx4j开发手册-7|Docx4j的页码">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docx4j开发手册-7|Docx4j的页码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-15 09:46:26" itemprop="dateCreated datePublished" datetime="2024-03-15T09:46:26+08:00">2024-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-17 20:46:27" itemprop="dateModified" datetime="2024-11-17T20:46:27+08:00">2024-11-17</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Docx4j开发手册-7|Docx4j的页码</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一、创建文档或者读取文档"><a href="#一、创建文档或者读取文档" class="headerlink" title="一、创建文档或者读取文档"></a>一、创建文档或者读取文档</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Docx4JException &#123;</span><br><span class="line">    <span class="type">WordprocessingMLPackage</span> <span class="variable">wmp</span> <span class="operator">=</span> WordprocessingMLPackage.createPackage();</span><br><span class="line">    <span class="comment">// 生成页码</span></span><br><span class="line">    setPageNum(wmp);</span><br><span class="line">    <span class="comment">// 保存文档到指定路径</span></span><br><span class="line">    wmp.save(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/xxxx/xx.docx&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、生成页码相关逻辑"><a href="#二、生成页码相关逻辑" class="headerlink" title="二、生成页码相关逻辑"></a>二、生成页码相关逻辑</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setPageNum</span><span class="params">(WordprocessingMLPackage wmp)</span> <span class="keyword">throws</span> InvalidFormatException &#123;</span><br><span class="line">    <span class="comment">// 创建页脚部分</span></span><br><span class="line">    <span class="type">FooterPart</span> <span class="variable">footerPart</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FooterPart</span>();</span><br><span class="line">    footerPart.setPackage(wmp);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 生成并设置页码，对齐方式为左对齐</span></span><br><span class="line">    <span class="type">Ftr</span> <span class="variable">ftr</span> <span class="operator">=</span> pageNumGenerator(JcEnumeration.LEFT);</span><br><span class="line">    footerPart.setJaxbElement(ftr);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 添加页脚部分到文档，并创建页脚的引用关系</span></span><br><span class="line">    <span class="type">Relationship</span> <span class="variable">footerRelationship</span> <span class="operator">=</span> wmp.getMainDocumentPart().addTargetPart(footerPart);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 创建页脚引用</span></span><br><span class="line">    createFooterReference(wmp, footerRelationship);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、生成一个包含页码的脚注"><a href="#三、生成一个包含页码的脚注" class="headerlink" title="三、生成一个包含页码的脚注"></a>三、生成一个包含页码的脚注</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 生成一个包含页码的脚注</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> alignMode 页码的对齐方式</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回一个设置好页码的脚注对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Ftr <span class="title function_">pageNumGenerator</span><span class="params">(JcEnumeration alignMode)</span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个脚注对象、创建一个段落对象</span></span><br><span class="line">    <span class="type">Ftr</span> <span class="variable">ftr</span> <span class="operator">=</span> FACTORY.createFtr();</span><br><span class="line">    <span class="type">P</span> <span class="variable">paragraph</span> <span class="operator">=</span> FACTORY.createP();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 获取段落属性</span></span><br><span class="line">    <span class="type">PPr</span> <span class="variable">pPr</span> <span class="operator">=</span> paragraph.getPPr();</span><br><span class="line">    <span class="comment">// 如果段落属性不存在，则创建并设置段落属性，包括页码对齐方式</span></span><br><span class="line">    <span class="keyword">if</span> (pPr == <span class="literal">null</span>) &#123;</span><br><span class="line">        pPr = FACTORY.createPPr();</span><br><span class="line">        <span class="type">Jc</span> <span class="variable">jc</span> <span class="operator">=</span> FACTORY.createJc();</span><br><span class="line">        <span class="comment">// 设置对齐模式</span></span><br><span class="line">        jc.setVal(alignMode);</span><br><span class="line">        pPr.setJc(jc);</span><br><span class="line">        paragraph.setPPr(pPr);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 在段落中添加页码字段的开始、页码字段本身和结束标记</span></span><br><span class="line">    addFieldBegin(paragraph);</span><br><span class="line">    addPageNumberField(paragraph);</span><br><span class="line">    addFieldEnd(paragraph);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 将含有页码字段的段落添加到脚注内容中</span></span><br><span class="line">    ftr.getContent().add(paragraph);</span><br><span class="line">    <span class="comment">// 返回包含页码的脚注对象</span></span><br><span class="line">    <span class="keyword">return</span> ftr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、创建页脚引用关系"><a href="#四、创建页脚引用关系" class="headerlink" title="四、创建页脚引用关系"></a>四、创建页脚引用关系</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建页脚引用关系</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> wmp          DOCX文档对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> relationship 文档中页脚与主体部分的关系对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">createFooterReference</span><span class="params">(WordprocessingMLPackage wmp, Relationship relationship)</span> &#123;</span><br><span class="line">    <span class="comment">// 获取文档中的所有节</span></span><br><span class="line">    List&lt;SectionWrapper&gt; sections = wmp.getDocumentModel().getSections();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 获取最后一个节的节属性</span></span><br><span class="line">    <span class="type">SectPr</span> <span class="variable">sectionProperties</span> <span class="operator">=</span> sections.get(sections.size() - <span class="number">1</span>).getSectPr();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 如果节属性不存在，则创建一个新的节属性并添加到文档中</span></span><br><span class="line">    <span class="keyword">if</span> (sectionProperties == <span class="literal">null</span>) &#123;</span><br><span class="line">        sectionProperties = FACTORY.createSectPr();</span><br><span class="line">        wmp.getMainDocumentPart().addObject(sectionProperties);</span><br><span class="line">        sections.get(sections.size() - <span class="number">1</span>).setSectPr(sectionProperties);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 创建页脚引用，并设置其关系ID和类型</span></span><br><span class="line">    <span class="type">FooterReference</span> <span class="variable">footerReference</span> <span class="operator">=</span> FACTORY.createFooterReference();</span><br><span class="line">    footerReference.setId(relationship.getId());</span><br><span class="line">    footerReference.setType(HdrFtrRef.DEFAULT);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 将页脚引用添加到节属性中</span></span><br><span class="line">    sectionProperties.getEGHdrFtrReferences().add(footerReference);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、相关辅助方法"><a href="#五、相关辅助方法" class="headerlink" title="五、相关辅助方法"></a>五、相关辅助方法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 一个用于将对象包装在R类型中</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> o</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> R <span class="title function_">rWrapper</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">    <span class="comment">// 使用工厂模式创建一个R类型的实例</span></span><br><span class="line">    <span class="type">R</span> <span class="variable">r</span> <span class="operator">=</span> FACTORY.createR();</span><br><span class="line">    <span class="comment">// 将传入的对象添加到R实例的内容中</span></span><br><span class="line">    r.getContent().add(o);</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 为给定的段落添加一个字段开始的分隔符</span></span><br><span class="line"><span class="comment"> * 这个方法主要用于文档编辑中，插入一个表示字段开始的特殊字符</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> paragraph 段落对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addFieldBegin</span><span class="params">(P paragraph)</span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个表示字段开始的分隔符对象</span></span><br><span class="line">    <span class="type">FldChar</span> <span class="variable">beginFldChar</span> <span class="operator">=</span> FACTORY.createFldChar();</span><br><span class="line">    beginFldChar.setFldCharType(STFldCharType.BEGIN);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 将字段开始分隔符包装成一个 JAXBElement，以便于插入段落内容中</span></span><br><span class="line">    JAXBElement&lt;FldChar&gt; beginR = FACTORY.createRFldChar(beginFldChar);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 调用 rWrapper 方法，将 JAXBElement 包装成 R 对象，方便处理</span></span><br><span class="line">    <span class="type">R</span> <span class="variable">r</span> <span class="operator">=</span> rWrapper(beginR);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 将包装好的 R 对象添加到段落的内容中</span></span><br><span class="line">    paragraph.getContent().add(r);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 向指定段落中添加页码字段</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> paragraph 段落对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addPageNumberField</span><span class="params">(P paragraph)</span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个文本对象，设置保留空格，并设置其值为&quot;PAGE&quot;。</span></span><br><span class="line">    <span class="type">Text</span> <span class="variable">txt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();</span><br><span class="line">    txt.setSpace(<span class="string">&quot;preserve&quot;</span>);</span><br><span class="line">    txt.setValue(<span class="string">&quot;PAGE&quot;</span>);</span><br><span class="line">    <span class="comment">// 使用创建的文本对象，构建一个RT元素。</span></span><br><span class="line">    JAXBElement&lt;Text&gt; rt = FACTORY.createRT(txt);</span><br><span class="line">    <span class="comment">// 封装RT元素到R元素中。</span></span><br><span class="line">    <span class="type">R</span> <span class="variable">r</span> <span class="operator">=</span> rWrapper(rt);</span><br><span class="line">    <span class="comment">// 将R元素添加到段落内容中，从而实现页码字段的添加。</span></span><br><span class="line">    paragraph.getContent().add(r);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 为给定的段落添加字段结束符</span></span><br><span class="line"><span class="comment"> * 此方法用于在段落中的实际字段后插入一个字段结束符，以标记字段的结束</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> paragraph 段落对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addFieldEnd</span><span class="params">(P paragraph)</span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个字段结束符对象</span></span><br><span class="line">    <span class="type">FldChar</span> <span class="variable">endFldChar</span> <span class="operator">=</span> FACTORY.createFldChar();</span><br><span class="line">    <span class="comment">// 设置字段结束符的类型</span></span><br><span class="line">    endFldChar.setFldCharType(STFldCharType.END);</span><br><span class="line">    <span class="comment">// 将字段结束符包装成一个 JAXBElement</span></span><br><span class="line">    JAXBElement&lt;FldChar&gt; endR = FACTORY.createRFldChar(endFldChar);</span><br><span class="line">    <span class="comment">// 调用 rWrapper 方法，将 JAXBElement 包装成 R 对象</span></span><br><span class="line">    <span class="type">R</span> <span class="variable">r</span> <span class="operator">=</span> rWrapper(endR);</span><br><span class="line">    <span class="comment">// 将包装后的 R 对象添加到段落的内容中</span></span><br><span class="line">    paragraph.getContent().add(r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docx4j/" rel="tag"># Docx4j</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/03/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-6-Docx4j%E7%9A%84%E8%A1%A8%E6%A0%BC/" rel="prev" title="Docx4j开发手册-6|Docx4j的表格">
+                  <i class="fa fa-angle-left"></i> Docx4j开发手册-6|Docx4j的表格
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/16/Docx4j%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-8-Docx4j%E7%9A%84%E7%9B%AE%E5%BD%95/" rel="next" title="Docx4j开发手册-8|Docx4j的目录">
+                  Docx4j开发手册-8|Docx4j的目录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BigOrange</span>
+  </div><div>
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+  本网站由
+  <img src="data:image/png;base64,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" width="45px" style="display:inline;padding-top:5px;"/>
+  提供CDN加速/云存储服务
+  </a>
+  <a>&emsp;|&emsp;</a>
+  <a href="https://www.foreverblog.cn/" target="_blank" ><img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="display:inline;height:16px;"></a>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=3HGFkqwJpvEGaeV9&ck=3HGFkqwJpvEGaeV9&autoTrack=true"></script>
+<script defer src="https://total.660066.xyz/script.js" data-website-id="79434618-ab49-48f6-8d25-61792472ef8e"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"BaseOrange","repo":"BaseOrange.github.io","client_id":"8f8eb36a78230e56ee7e","client_secret":"c826afd9bd0b45f07426463094a3ad186de52bd8","admin_user":"BaseOrange","distraction_free_mode":true,"proxy":"https://proxy.660066.xyz/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"7a3c5727afeb8c6fffb386f30a417324"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

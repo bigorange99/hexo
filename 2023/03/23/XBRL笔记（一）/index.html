@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="JyJm6tHJ1q5mhbqwbRl4KEUE_ms1dc_9MJ0G0GIHnq8">
+  <meta name="baidu-site-verification" content="codeva-tXW0RgD5OZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"log.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="XBRL笔记（一）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XBRL笔记（一）">
+<meta property="og:url" content="https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="大橙子">
+<meta property="og:description" content="XBRL笔记（一）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20230322091300650.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20230322094820698.png">
+<meta property="article:published_time" content="2023-03-23T01:49:34.000Z">
+<meta property="article:modified_time" content="2024-11-17T12:46:27.210Z">
+<meta property="article:author" content="BigOrange">
+<meta property="article:tag" content="XBRL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20230322091300650.png">
+
+
+<link rel="canonical" href="https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/","path":"2023/03/23/XBRL笔记（一）/","title":"XBRL笔记（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>XBRL笔记（一） | 大橙子</title>
+  
+
+
+
+
+
+
+
+  <script defer data-domain="660066.xyz" src="https://plausible.io/js/script.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="大橙子" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="大橙子" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大橙子</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-工具箱"><a href="/tools/" rel="section"><i class="fa fa-flask fa-fw"></i>工具箱</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E6%96%87%E6%A1%A3%E6%A0%87%E7%AD%BE"><span class="nav-text">实例文档标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E6%A0%87%E5%87%86"><span class="nav-text">分类标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XBRL2-1%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83"><span class="nav-text">XBRL2.1技术规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%8A%80%E6%9C%AF%E5%B1%9E%E6%80%A7"><span class="nav-text">基本技术属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xlink-2003-12-31-xsd%E6%96%87%E4%BB%B6"><span class="nav-text">xlink-2003-12-31.xsd文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xl-2003-12-31-xsd%E6%96%87%E4%BB%B6"><span class="nav-text">xl-2003-12-31.xsd文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xbrl-linkbase-2003-12-31-xsd%E6%96%87%E4%BB%B6"><span class="nav-text">xbrl-linkbase-2003-12-31.xsd文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xbrl-instance-2003-12-31-xsd%E6%96%87%E4%BB%B6"><span class="nav-text">xbrl-instance-2003-12-31.xsd文件</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BigOrange</p>
+  <div class="site-description" itemprop="description">新的斗争开始了<br/>A new struggle has begun</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://log.660066.xyz/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigOrange">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大橙子">
+      <meta itemprop="description" content="新的斗争开始了<br/>A new struggle has begun">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="XBRL笔记（一） | 大橙子">
+      <meta itemprop="description" content="XBRL笔记（一）">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          XBRL笔记（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-23 09:49:34" itemprop="dateCreated datePublished" datetime="2023-03-23T09:49:34+08:00">2023-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-17 20:46:27" itemprop="dateModified" datetime="2024-11-17T20:46:27+08:00">2024-11-17</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">XBRL笔记（一）</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="实例文档标签"><a href="#实例文档标签" class="headerlink" title="实例文档标签"></a>实例文档标签</h1><ul>
+<li>entity（报告主体）：描述主体信息，例如：公司名、实体标识符</li>
+<li>period（报告期间）：描述报告的期间信息。时间点或时间段。</li>
+<li>unit（货币单位）：描述报告中的货币类型数据的单位，非货币类型不使用此标签。</li>
+<li>concept（元素名称）：不是具体标签，是元素名称的统称。</li>
+<li>fact（报告数据）：不是具体标签，表达报告数据的概念</li>
+<li><img src="/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20230322091300650.png" alt="image-20230322091300650"></li>
+</ul>
+<h1 id="分类标准"><a href="#分类标准" class="headerlink" title="分类标准"></a>分类标准</h1><ol>
+<li><strong>模式文件</strong>：所有元素均在分类模式文件中定义。定义时需指定<strong>元素名称</strong>、<strong>数据类型</strong>、<strong>科目类型</strong>（“借方”或“贷方”)、<strong>数值的时期属性</strong>(“时间点”或“时间段”)。</li>
+</ol>
+<p><img src="/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20230322094820698.png" alt="image-20230322094820698"></p>
+<ol start="2">
+<li><strong>链接库文件</strong><ol>
+<li><strong>定义链接库</strong>：原本是描述元素间的定义层关系，现在用来描述维度关系。</li>
+<li><strong>标签链接库</strong>：元素名称的显示方式，将模式文件中的元素和易理解的名称联系起来。提供多语种翻译。</li>
+<li><strong>列报链接库</strong>：定义元素之间的层次关系和顺序关系。</li>
+<li><strong>计算链接库</strong>：元素之间的数值计算关系。</li>
+<li><strong>参考链接库</strong>：给出元素的参考文件。</li>
+</ol>
+</li>
+</ol>
+<h1 id="XBRL2-1技术规范"><a href="#XBRL2-1技术规范" class="headerlink" title="XBRL2.1技术规范"></a>XBRL2.1技术规范</h1><h2 id="基本技术属性"><a href="#基本技术属性" class="headerlink" title="基本技术属性"></a>基本技术属性</h2><h3 id="xlink-2003-12-31-xsd文件"><a href="#xlink-2003-12-31-xsd文件" class="headerlink" title="xlink-2003-12-31.xsd文件"></a>xlink-2003-12-31.xsd文件</h3><ol>
+<li>type（XML元素类型）：<ol>
+<li>simple简单类型</li>
+<li>extended扩展类型</li>
+<li>locator定位器类型（指向远程资源）</li>
+<li>arc弧类型</li>
+<li>resource本地资源类型</li>
+<li>title标题类型</li>
+</ol>
+</li>
+<li>role（角色）：属性值为URI，对应用场景进行分类</li>
+<li>arcrole（弧角色）：属性值为URI，对弧关系进行分类</li>
+<li>title（标题）：属性值为字符串，描述资源的标题信息</li>
+<li>show（打开链接的结果）：new(打开新页面)、replace(替换当前页面)、embed(链接资源中嵌入当前页面)、other(其他方式)、none(不打开)</li>
+<li>actuate（链接激发机制）：onRequest(用户必须操作才能触发链接)、onLoad(链接自动加载)、other(其他加载方式)、none(不加载)</li>
+<li>lable（标签）：资源的辅助信息</li>
+<li>from&#x2F;to（弧起点&#x2F;终点）：指向两个标签</li>
+<li>href（引用）：指定连接的目标URI</li>
+</ol>
+<h3 id="xl-2003-12-31-xsd文件"><a href="#xl-2003-12-31-xsd文件" class="headerlink" title="xl-2003-12-31.xsd文件"></a>xl-2003-12-31.xsd文件</h3><ol>
+<li>引入了xlink-2003-12-31.xsd文件</li>
+<li>在<strong>xlink-2003-12-31.xsd文件</strong>的type基础上增加一个documentation。</li>
+<li>还定义了一个简单类型“useEnum”，表示元素使用性，属性值为optional(可选的)、prohibited(禁止的)</li>
+</ol>
+<h3 id="xbrl-linkbase-2003-12-31-xsd文件"><a href="#xbrl-linkbase-2003-12-31-xsd文件" class="headerlink" title="xbrl-linkbase-2003-12-31.xsd文件"></a>xbrl-linkbase-2003-12-31.xsd文件</h3><ol>
+<li>引入了xlink-2003-12-31.xsd文件、xl-2003-12-31.xsd文件</li>
+<li>定义了27种链接库所需元素</li>
+</ol>
+<h3 id="xbrl-instance-2003-12-31-xsd文件"><a href="#xbrl-instance-2003-12-31-xsd文件" class="headerlink" title="xbrl-instance-2003-12-31.xsd文件"></a>xbrl-instance-2003-12-31.xsd文件</h3><ol>
+<li>引入了xbrl-linkbase-2003-12-31.xsd文件</li>
+<li>xbrl（XBRL实例文档根元素）</li>
+<li>context（上下文元素）：描述事实数据所依赖的上下文环境<ul>
+<li>entity：报告主体，由identifier(标识符)元素确定，还可包含segment(段)元素</li>
+<li>period：报告期间，由duration(持续时间)类型和instant(即时)类型构成</li>
+<li>scenario：场景元素，对特殊场景进行描述</li>
+</ul>
+</li>
+<li>unit（单位）：可以是简单单位也可以是复合单位(分子单位除以分母单位)</li>
+<li>item（数据项）：记录具体财务数据</li>
+<li>tuple（元组）：可以包含多个数据项</li>
+<li>footnoteLink（脚注链接元素）：指向对应的脚注信息</li>
+<li>percision（数据精度）：如果为4，那么数据“123456”的实际值为“123400”</li>
+<li>decimal（小数位数）：<ul>
+<li>如果为2，那么数据“12.3456”的实际值为“12.34”。（精确到小数点后2位）</li>
+<li>如果为-2，那么数据“123.456”的实际值为“100”。（精确到百位）</li>
+<li>如果为INF，那么数据“123.456”的实际值为“123.456”。（精确度不做规定）</li>
+</ul>
+</li>
+<li>balance（借贷属性）：可选debit(借记)或credit(信贷)</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/XBRL/" rel="tag"># XBRL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%A4%A7%E5%85%A8/" rel="prev" title="正则表达式大全">
+                  <i class="fa fa-angle-left"></i> 正则表达式大全
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/04/11/Doris%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="Doris学习笔记（一）">
+                  Doris学习笔记（一） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BigOrange</span>
+  </div><div>
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+  本网站由
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlIAAAEuCAMAAAByCQxmAAAABlBMVEUAoP8AoP+IQHPMAAAAAnRSTlML9sG5Q9oAAAfGSURBVHja7d3RbuM4EETR7v//6cUA+7DAJGuLrOpuUve+zsSU6GNKlhwngoiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIhmlv/GTJBG0t8xNyTDBCwycYIVGTjBihyeMEVqT5gitSdIkRoUpEgMClIkBgUpEoNCFGlB5Q+PyuwCSkSKhQtQ4kWKoyGibKJABSi5KEwhSnYiBSpAeRYpTCFKLwpTiFKLAhWghCdSmEKUZZHCFKLkojCFKLUoUCFKeCKFKURZFilMIUouClOIUovCFKKEJ1KYQpRjkcIUouSiMIUotShMIUp4IgUpRDkWKUwhSi0KU5BSi8IUooQnUphClGORghSi1KIwBSm1qENNPdn4S19Vc0UdOaNPNv7SV5VZFKQgJf4Sqdd9JRWkzN9G9r6vOWsm1T/bRk2ah5+w9J5DKge8hM1bkE37mH2mOknlAFLm4bNpHxNSXaTMgzccdiB1LqnCJ/ZeUupLnf2kvAMnpA58+960BdXPKqROIXXAMQ9SbyBVeWdniqlTSHVflxIOmeZOutbZe+H/wEWqntOEF/w5pI67udcEqv0FDykXqS5Q7csUpEyk+kBB6hWiMl9DqkLiG0m1iuq9yFNxVv96UZnXk1ob+/NWH/c2pYZU5v2mvh364Q4c+NbXRKpdFKSGkzpP1FRST/cAUmNElc+mepGC1K87kqeR2r7xrJrKq0mdKGrz9xogNYmUS1QUfCfs8k8nB74aUoYlxzqdKSAVrFJniQrvX21Y/enUkwpIGUmtbc9MUrFO6qJ7PMNEOU2t/rTg5z7ejyk4fE8nZXzrNpjUxtyqHng+qeZFKg4gtTHoh5+EVM0i9eWD151MQcpHKiaRqlumIFVBynsRfBapnSEhBSlIHS6qmlRAClI2UlnyFEIKUpCqJGUQtfetCiVHvoQUpLRPiOr9AKQ6SSWk3kbK/fHMmk92Pv/+PkidQWrj6zqKScV4UmnuiOPe1rwUkMqDSKW/Q0itz0z4TekAX0EqTyGVY0klpEpIeTc13aQWP/YbkEr1H+HwbnrdKrX4ywmQghSkIDXuyCcdClKQghSk1Ka0I73luhSkLiI14+r5S0l9ZUo80IR7fLoJhBSkfprb7pvG6V1fCy8ifPe8aAb68CArY8hIDfogwmWk0jj5nx5lYZBUkYpJpMJJKktIxRNShgnVTOTERWr5CbyJVNaLavp+qQpR60eZ00lFM6mOb8HL2aTiIlLZIKqbVES7qb13i8OuIXya4PVRJpPK8aTiWlKqp20wqegnFVWksoxUfPXew/tup5JUlait38I8nFR8c4nkGlI5jFSYScUgUrorP2NJBaQ8on6ZZtnl6VHXpfJlpHoWqZ/n2fQG4It3zVYadaK2vmr1eFLxYd3wLIMdt40TUkWk/nrOjWb//5+jjlS8gNTiI9r3Xvr40UmqVNTOydQFpKKMLKQKL3UuPqR7/+MeUrWiNkzdsEj9PmjcQypPIdW8SEFq7t9ba/5wy/JDeicg7iGVU0m5fg+xe5H6edy4lFTEWFN5zyIVzt9vG0CqQdTCJzuzX5SVVECqipS8GLFIXU2qQ1ScKMpLKt9NKg82NYRUXkzq+V7JP4qGqKsuIjzeJ9H+94OKbCPlHWESqUcPfuIytbcBBSeSN5DK9ROv80jFjEWq7sMzLyMVh4nKClEXfF5q62PIZ5HaHr3q8snbSB175Bsi6qeHVY/USmrlktSRpgRDGy+Zi4c6jdSJy1TMFqU21UlqaS+OW6Y043pvwUiHayS1uA9HkVKN6r6ppxxwCKnFqRltSjmm/56ebkgrKQ+NwaRcQxquHDxbxd5DapIp53juJerB/+ogtXDcW5+hMaRirqidY/LecMWkUkJqiinvWOo93NdXSiqfk5JvdTkp70hVoDSm5KTSf9ybt0yZh9HunNbg8+d14xbc16QMx+taUuYxCkHto0o1qaWXw+Zs9ZsyD6DcrfUflS0pOxvjXGgmfW6qeQ18MOzez4uWlI0z0Cgi1b1MmS9PCPfHbjKfkXp8xmBFkWOWKfctHtmuuBe6b//n+gJvVWG+trz6lGejKPnhc/dWuHy6S2+GNJo6Q5R4WrbOvGZe+yu4qzpDlIiUel62LlZMvONV8tGPw0S5fjfvi4eseRc886atl1SvqCh9tanv+ehmYs4qFSMXKfFyopubrbdmXat1Nak4+7Bn/aLED++w9y5elV5HqSUVZ4syfgPZp0s+7jueQz8IYNmUSaIqvkL3K1LqeR5529a1IYNOpP67CWHs5xG2bi17ntgZonZePgNE/dmIKOjX30uMYQ0AFet/zWWEKBrZmBMpnor3mfIuUjwR7zOFKNKaQhSJTSGKtKasixRPwAtNIYq0qBBFYlOIIq0p5yLFvL/RlFEUk/5KVIgisSlEkdaUbZFisl+KClGkNeUSxTS/FpVHFFP8XlSeRYr5fS2qsIhibkkqipkkKSnmkaSimEaSkmISSUmKGSSpKaaPlKaYOhKiYtJIyIrJIp0rpohUspgUIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiOqZ/AMg6kmnDoZrIAAAAAElFTkSuQmCC" width="45px" style="display:inline;padding-top:5px;"/>
+  提供CDN加速/云存储服务
+  </a>
+  <a>&emsp;|&emsp;</a>
+  <a href="https://www.foreverblog.cn/" target="_blank" ><img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="display:inline;height:16px;"></a>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=3HGFkqwJpvEGaeV9&ck=3HGFkqwJpvEGaeV9&autoTrack=true"></script>
+<script defer src="https://total.660066.xyz/script.js" data-website-id="79434618-ab49-48f6-8d25-61792472ef8e"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"BaseOrange","repo":"BaseOrange.github.io","client_id":"8f8eb36a78230e56ee7e","client_secret":"c826afd9bd0b45f07426463094a3ad186de52bd8","admin_user":"BaseOrange","distraction_free_mode":true,"proxy":"https://proxy.660066.xyz/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"69621601dffe62db7d57d229bcd4b07c"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
