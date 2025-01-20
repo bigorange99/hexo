@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+Sitemap: https://log.660066.xyz/sitemap.xml
+Sitemap: https://log.660066.xyz/atom.xml
